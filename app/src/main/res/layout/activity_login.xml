@@ -56,13 +56,13 @@
             android:background="@drawable/blue_border_rounded_cornwe">
 
             <EditText
-                android:id="@+id/loginusername"
+                android:id="@+id/loginemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/username_icon"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/poppins_regular"
-                android:hint="Username"
+                android:hint="Email"
                 android:inputType="textPersonName"
                 android:paddingLeft="17dp"
                 android:paddingTop="15dp"

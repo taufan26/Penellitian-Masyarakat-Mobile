@@ -11,11 +11,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_polindra"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo_polindra"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Penelitian_Mobile">
+        android:theme="@style/Theme.Penelitian_Mobile"
+        android:usesCleartextTraffic="true">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
