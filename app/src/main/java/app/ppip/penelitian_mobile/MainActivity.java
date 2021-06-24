@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
             moveToLogin();
         }
 
-        CardView cv_logout = findViewById(R.id.logout);
+        CardView cv_logout = findViewById(R.id.menu_logout);
         cv_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
