@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -53,6 +53,7 @@
             android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/menu_usulan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -77,7 +78,7 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#6f6f6f"
                         android:textSize="18sp"
-                        android:text="Menu 1"
+                        android:text="Usulan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -86,6 +87,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/menu_logbook"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -110,7 +112,7 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#6f6f6f"
                         android:textSize="18sp"
-                        android:text="Menu 1"
+                        android:text="Logbook"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -143,7 +145,7 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#6f6f6f"
                         android:textSize="18sp"
-                        android:text="Menu 1"
+                        android:text="Pengumuman"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -176,7 +178,7 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#6f6f6f"
                         android:textSize="18sp"
-                        android:text="Menu 1"
+                        android:text="Info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -185,6 +187,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/menu_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -209,7 +212,7 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#6f6f6f"
                         android:textSize="18sp"
-                        android:text="Menu 1"
+                        android:text="Profile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -255,4 +258,4 @@
 
     </LinearLayout>
 
-</ScrollView>
+</LinearLayout>

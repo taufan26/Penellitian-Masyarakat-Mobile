@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    <ImageView-->
+<!--        android:id="@+id/usulan_image"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:background="@drawable/document"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/judul"-->
+<!--        android:text="Judul Usulan"-->
+<!--        android:textSize="20sp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginLeft="15dp"-->
+<!--        android:layout_toRightOf="@+id/usulan_image"/>-->
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_marginTop="16dp"
+        android:id="@+id/card_usulan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textColor="#131313"
+                        android:layout_width="wrap_content"
+                        android:textSize="24dp"
+                        android:layout_height="wrap_content"
+                        android:text="Judul Usulan"
+                        android:fontFamily="@font/roboto_bold"/>
+
+                    <TextView
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="kategori Usulan"
+                        android:textSize="14dp"
+                        android:textColor="#131313"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:textSize="20dp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:layout_height="wrap_content"
+                                android:text="2021"
+                                android:textColor="#6A90B5"/>
+
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:textSize="14dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:layout_height="wrap_content"
+                                android:text="Tahun"
+                                android:textColor="#DF6A90B5"/>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_marginLeft="16dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/split"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginLeft="16dp">
+
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:textSize="20dp"
+                                android:fontFamily="@font/roboto_bold"
+                                android:layout_height="wrap_content"
+                                android:text="21"
+                                android:textColor="#6A90B5"/>
+
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:textSize="14dp"
+                                android:fontFamily="@font/roboto_regular"
+                                android:layout_height="wrap_content"
+                                android:text="Hari"
+                                android:textColor="#DF6A90B5"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_alignParentRight="true"
+                        android:layout_width="100dp"
+                        android:layout_height="120dp"
+                        android:src="@drawable/document" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Staus Usulan"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textColor="#6A90B5"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

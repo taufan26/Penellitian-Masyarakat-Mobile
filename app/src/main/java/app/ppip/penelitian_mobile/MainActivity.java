@@ -21,11 +21,39 @@ public class MainActivity extends AppCompatActivity {
         }
 
         CardView cv_logout = findViewById(R.id.menu_logout);
+        CardView cv_profile = findViewById(R.id.menu_profile);
+        CardView cv_usulan = findViewById(R.id.menu_usulan);
+        CardView cv_logbook = findViewById(R.id.menu_logbook);
+
         cv_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sessionManager.logoutSession();
                 moveToLogin();
+            }
+        });
+
+        cv_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
+                startActivity(i);
+            }
+        });
+
+        cv_usulan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), UsulanActivity.class);
+                startActivity(i);
+            }
+        });
+
+        cv_logbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), LogbookActivity.class);
+                startActivity(i);
             }
         });
 
