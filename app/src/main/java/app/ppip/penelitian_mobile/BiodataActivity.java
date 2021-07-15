@@ -13,9 +13,9 @@ import com.squareup.picasso.Picasso;
 public class BiodataActivity extends AppCompatActivity {
 
     ImageView foto;
-    TextView bio_user_id, jk, alamat, tempat, tanggal, institusi, programstudi, jabatan, ktp, btnbio;
+    TextView bio_hp, jk, alamat, tempat, tanggal, institusi, programstudi, jabatan, ktp, btnbio;
     SessionManager sessionManger;
-    String Id, Sex, Alamat, TL, TTL, Institusi, ProgramStudi, Jabatan, KTP, image;
+    String hp, Sex, Alamat, TL, TTL, Institusi, ProgramStudi, Jabatan, KTP, image;
 
 
     @Override
@@ -26,7 +26,7 @@ public class BiodataActivity extends AppCompatActivity {
         sessionManger = new SessionManager(BiodataActivity.this);
 
         //inisialisasi
-        bio_user_id = findViewById(R.id.bio_userid);
+        bio_hp = findViewById(R.id.bio_hp);
         jk = findViewById(R.id.bio_sex);
         alamat = findViewById(R.id.bio_alamat);
         tempat = findViewById(R.id.bio_tempat);
@@ -38,7 +38,7 @@ public class BiodataActivity extends AppCompatActivity {
         btnbio = findViewById(R.id.bio_btn);
         foto = findViewById(R.id.bio_image);
 
-        Id = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_USER_ID);
+        hp = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_HP_NUMBER);
         Sex = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_SEX);
         Alamat = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_ADDRESS);
         TL = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_BIRTHPLACE);
@@ -50,8 +50,12 @@ public class BiodataActivity extends AppCompatActivity {
         image = sessionManger.getUserDetail().get(SessionManager.USER_IMAGE);
 
 
-        bio_user_id.setText(Id);
-        jk.setText(Sex);
+        bio_hp.setText(hp);
+        if (Sex.equals("1")){
+            jk.setText("Laki-Laki");
+        }else {
+            jk.setText("Perempuan");
+        }
         alamat.setText(Alamat);
         tempat.setText(TL);
         tanggal.setText(TTL);

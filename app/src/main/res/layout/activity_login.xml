@@ -42,7 +42,7 @@
                 android:paddingTop="20dp"
                 android:paddingLeft="20dp"
                 android:fontFamily="@font/poppins_medium"
-                android:text="PENELITIAN MASYARAKAT POLINDRA"
+                android:text="SIMLITABNAS POLINDRA"
                 android:textColor="#ffffff"
                 android:textSize="20.5sp" />
         </FrameLayout>

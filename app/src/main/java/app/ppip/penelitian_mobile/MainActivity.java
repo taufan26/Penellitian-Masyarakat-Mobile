@@ -1,68 +1,57 @@
 package app.ppip.penelitian_mobile;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class MainActivity extends AppCompatActivity {
-    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sessionManager = new SessionManager(MainActivity.this);
-        if (sessionManager.isLoggedIn() == false){
-            moveToLogin();
-        }
+        BottomNavigationView bottom_nav = findViewById(R.id.bottom_navigation);
+        bottom_nav.setOnNavigationItemSelectedListener(navListener);
 
-        CardView cv_logout = findViewById(R.id.menu_logout);
-        CardView cv_profile = findViewById(R.id.menu_profile);
-        CardView cv_usulan = findViewById(R.id.menu_usulan);
-        CardView cv_logbook = findViewById(R.id.menu_logbook);
 
-        cv_logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sessionManager.logoutSession();
-                moveToLogin();
-            }
-        });
 
-        cv_profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
-                startActivity(i);
-            }
-        });
-
-        cv_usulan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), UsulanActivity.class);
-                startActivity(i);
-            }
-        });
-
-        cv_logbook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), LogbookActivity.class);
-                startActivity(i);
-            }
-        });
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new HomeFragment()).commit();
 
     }
 
-    private void moveToLogin() {
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY);
-        startActivity(intent);
-        finish();
-    }
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Fragment selectionFragment = null;
+                    switch (item.getItemId()){
+                        case R.id.nav_beranda:
+                            selectionFragment = new HomeFragment();
+                            break;
+                        case R.id.nav_penelitian:
+                            selectionFragment = new PenelitianFragment();
+                            break;
+                        case R.id.nav_pengabdian:
+                            selectionFragment = new PengabdianFragment();
+                            break;
+                    }
+
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            selectionFragment).commit();
+
+                    return true;
+                }
+            };
+
 }

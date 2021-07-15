@@ -91,7 +91,7 @@ public class ProfileActivity extends AppCompatActivity {
                     DataBio data = response.body().getData();
                     sessionManger.createBiodataList(data);
 
-                    Toast.makeText(ProfileActivity.this, response.body().getData().getBiodataUserId(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(ProfileActivity.this, BiodataActivity.class);
                     startActivity(intent);
                     finish();
@@ -108,4 +108,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
