@@ -55,7 +55,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         Nama.setText(nama);
         Email.setText(email);
-        Picasso.get().load(Urls.image_url+foto).into(showFoto);
+        Picasso.get().load(Urls.image_url+foto).transform(new CircleTransform()).into(showFoto);
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("loading....");

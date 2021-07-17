@@ -51,7 +51,7 @@ public class AnggotaActivity extends AppCompatActivity {
         tugas.setText(Tugas);
         annama.setText(Annama);
         anemail.setText(Anemail);
-        Picasso.get().load(Urls.image_url+image).into(foto);
+        Picasso.get().load(Urls.image_url+image).transform(new CircleTransform()).into(foto);
 
         btnanggota.setOnClickListener(new View.OnClickListener() {
             @Override

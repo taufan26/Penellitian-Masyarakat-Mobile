@@ -69,7 +69,7 @@ public class BiodataActivity extends AppCompatActivity {
         ktp.setText(KTP);
         bionama.setText(Bionama);
         bioemail.setText(Bioemail);
-        Picasso.get().load(Urls.image_url+image).into(foto);
+        Picasso.get().load(Urls.image_url+image).transform(new CircleTransform()).into(foto);
 
         btnbio.setOnClickListener(new View.OnClickListener() {
             @Override
