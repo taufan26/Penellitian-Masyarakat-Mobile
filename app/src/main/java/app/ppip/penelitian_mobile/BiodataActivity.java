@@ -13,9 +13,9 @@ import com.squareup.picasso.Picasso;
 public class BiodataActivity extends AppCompatActivity {
 
     ImageView foto;
-    TextView bio_hp, jk, alamat, tempat, tanggal, institusi, programstudi, jabatan, ktp, btnbio;
+    TextView bio_hp, jk, alamat, tempat, tanggal, institusi, programstudi, jabatan, ktp, btnbio, bionama, bioemail;
     SessionManager sessionManger;
-    String hp, Sex, Alamat, TL, TTL, Institusi, ProgramStudi, Jabatan, KTP, image;
+    String hp, Sex, Alamat, TL, TTL, Institusi, ProgramStudi, Jabatan, KTP, image, Bionama, Bioemail;
 
 
     @Override
@@ -37,6 +37,8 @@ public class BiodataActivity extends AppCompatActivity {
         ktp = findViewById(R.id.bio_ktp);
         btnbio = findViewById(R.id.bio_btn);
         foto = findViewById(R.id.bio_image);
+        bionama = findViewById(R.id.bio_name);
+        bioemail = findViewById(R.id.bio_email);
 
         hp = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_HP_NUMBER);
         Sex = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_SEX);
@@ -48,6 +50,8 @@ public class BiodataActivity extends AppCompatActivity {
         Jabatan = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_POSITION);
         KTP = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_KTP_NUMBER);
         image = sessionManger.getUserDetail().get(SessionManager.USER_IMAGE);
+        Bionama = sessionManger.getUserDetail().get(SessionManager.USER_NAME);
+        Bioemail = sessionManger.getUserDetail().get(SessionManager.USER_EMAIL);
 
 
         bio_hp.setText(hp);
@@ -63,6 +67,8 @@ public class BiodataActivity extends AppCompatActivity {
         programstudi.setText(ProgramStudi);
         jabatan.setText(Jabatan);
         ktp.setText(KTP);
+        bionama.setText(Bionama);
+        bioemail.setText(Bioemail);
         Picasso.get().load(Urls.image_url+image).into(foto);
 
         btnbio.setOnClickListener(new View.OnClickListener() {

@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Penelitian_Mobile"
         android:usesCleartextTraffic="true">
-        <activity android:name=".BiodataActivity"></activity>
+        <activity android:name=".AnggotaActivity"></activity>
+        <activity android:name=".BiodataActivity" />
         <activity android:name=".LogbookActivity" />
         <activity android:name=".UsulanActivity" />
         <activity android:name=".ProfileActivity" />
