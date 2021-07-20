@@ -18,12 +18,12 @@ import app.ppip.penelitian_mobile.model.usulanPengabdian.DataUsulanPengabdian;
 public class UsulanAdapter extends RecyclerView.Adapter<UsulanAdapter.RecyclerViewAdapter> {
 
     private Context context;
-    private List<DataUsulanPengabdian> data;
+    private List<DataUsulanPengabdian> datas;
     private ItemClickListener itemClickListener;
 
     public UsulanAdapter(Context context, List<DataUsulanPengabdian> data, ItemClickListener itemClickListener) {
         this.context = context;
-        this.data = data;
+        this.datas = data;
         this.itemClickListener = itemClickListener;
     }
 
@@ -38,7 +38,7 @@ public class UsulanAdapter extends RecyclerView.Adapter<UsulanAdapter.RecyclerVi
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter holder, int position) {
 
-        DataUsulanPengabdian datausulan = data.get(position);
+        DataUsulanPengabdian datausulan = datas.get(position);
         holder.tv_judul.setText(datausulan.getUsulanPengabdianJudul());
         holder.tv_kategori.setText(datausulan.getUsulanPengabdianKategori());
         holder.tv_tahun.setText(datausulan.getUsulanPengabdianTahun());
@@ -48,7 +48,7 @@ public class UsulanAdapter extends RecyclerView.Adapter<UsulanAdapter.RecyclerVi
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return datas.size();
     }
 
     class RecyclerViewAdapter extends RecyclerView.ViewHolder implements View.OnClickListener {

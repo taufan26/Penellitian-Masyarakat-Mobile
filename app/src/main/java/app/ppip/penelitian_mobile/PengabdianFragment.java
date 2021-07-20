@@ -46,44 +46,13 @@ public class PengabdianFragment  extends Fragment {
         cv_usulan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressDialog.show();
-                anggota_id  = sessionManger.getAnggotaDetail().get(SessionManager.ANGGOTA_ID_ID);
-                usulanPengabdian(anggota_id);
+                Intent i = new Intent(getActivity().getApplicationContext(), UsulanPengabdianActivity.class);
+                startActivity(i);
             }
         });
 
         return rootView;
     }
 
-    private void usulanPengabdian(String anggota_id) {
 
-        apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<UsulanPengabdian> usulanPengabdianCall = apiInterface.USULAN_PENGABDIAN_CALL(anggota_id);
-        usulanPengabdianCall.enqueue(new Callback<UsulanPengabdian>() {
-            @Override
-            public void onResponse(Call<UsulanPengabdian> call, Response<UsulanPengabdian> response) {
-                if (response.body() != null && response.isSuccessful() && response.body().isStatus()){
-                    progressDialog.dismiss();
-
-                    sessionManger = new SessionManager(PengabdianFragment.this.getActivity());
-                    DataUsulanPengabdian data = response.body().getData();
-                    sessionManger.createUsulanPengabdianSession(data);
-
-                    Toast.makeText(PengabdianFragment.this.getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(PengabdianFragment.this.getActivity(), UsulanPengabdianActivity.class);
-                    startActivity(intent);
-                    getActivity().finish();
-                }else {
-                    progressDialog.dismiss();
-                    Toast.makeText(PengabdianFragment.this.getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<UsulanPengabdian> call, Throwable t) {
-                progressDialog.dismiss();
-                Toast.makeText(PengabdianFragment.this.getActivity(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 }
