@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UsulanActivity"
+    tools:context=".UsulanPenelitainActivity"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -38,10 +38,20 @@
 
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_usulan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-    </androidx.recyclerview.widget.RecyclerView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffff"
+        android:padding="20dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_usulan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
+
 </LinearLayout>

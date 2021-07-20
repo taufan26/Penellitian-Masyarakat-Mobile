@@ -4,21 +4,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--    <ImageView-->
-<!--        android:id="@+id/usulan_image"-->
-<!--        android:layout_width="80dp"-->
-<!--        android:layout_height="80dp"-->
-<!--        android:background="@drawable/document"/>-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/judul"-->
-<!--        android:text="Judul Usulan"-->
-<!--        android:textSize="20sp"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:layout_marginLeft="15dp"-->
-<!--        android:layout_toRightOf="@+id/usulan_image"/>-->
 
     <com.google.android.material.card.MaterialCardView
         android:layout_marginTop="16dp"
@@ -45,6 +30,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/usulan_judul"
                         android:textColor="#131313"
                         android:layout_width="wrap_content"
                         android:textSize="24dp"
@@ -53,6 +39,7 @@
                         android:fontFamily="@font/roboto_bold"/>
 
                     <TextView
+                        android:id="@+id/usulan_kategori"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/roboto_regular"
                         android:layout_width="wrap_content"
@@ -73,6 +60,7 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/usulan_tahun"
                                 android:layout_gravity="center"
                                 android:layout_width="wrap_content"
                                 android:textSize="20dp"
@@ -82,6 +70,7 @@
                                 android:textColor="#6A90B5"/>
 
                             <TextView
+                                android:id="@+id/usulan_des_tahun"
                                 android:layout_gravity="center"
                                 android:layout_width="wrap_content"
                                 android:textSize="14dp"
@@ -93,6 +82,7 @@
                         </LinearLayout>
 
                         <ImageView
+                            android:id="@+id/usulan_garing"
                             android:layout_marginLeft="16dp"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
@@ -105,6 +95,7 @@
                             android:layout_marginLeft="16dp">
 
                             <TextView
+                                android:id="@+id/usulan_hari"
                                 android:layout_gravity="center"
                                 android:layout_width="wrap_content"
                                 android:textSize="20dp"
@@ -114,6 +105,7 @@
                                 android:textColor="#6A90B5"/>
 
                             <TextView
+                                android:id="@+id/usulan_des_hari"
                                 android:layout_gravity="center"
                                 android:layout_width="wrap_content"
                                 android:textSize="14dp"
@@ -133,6 +125,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:id="@+id/usulan_image"
                         android:layout_alignParentRight="true"
                         android:layout_width="100dp"
                         android:layout_height="120dp"
@@ -150,6 +143,7 @@
                 android:paddingTop="10dp">
 
                 <TextView
+                    android:id="@+id/usulan_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Staus Usulan"

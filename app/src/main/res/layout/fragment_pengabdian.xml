@@ -52,7 +52,7 @@
             android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/menu_usulan"
+                android:id="@+id/menu_usulan_pengabdian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -81,12 +81,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textColor="#6f6f6f"
+                        android:textSize="18sp"
+                        android:text="Pengabdian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/menu_logbook"
+                android:id="@+id/menu_logbook_pengabdian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -112,6 +120,14 @@
                         android:textColor="#6f6f6f"
                         android:textSize="18sp"
                         android:text="Logbook"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textColor="#6f6f6f"
+                        android:textSize="18sp"
+                        android:text="Pengabdian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 

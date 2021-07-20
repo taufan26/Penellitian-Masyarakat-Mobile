@@ -26,13 +26,9 @@ import retrofit2.Response;
 public class ProfileActivity extends AppCompatActivity {
 
     ImageView showFoto;
-    TextView Nama, Email;
+    TextView Nama, Email, home, biodata, anggota;
     SessionManager sessionManger;
     String email, nama, foto;
-    Button home, biodata, anggota;
-    String  user_id;
-    ProgressDialog progressDialog;
-    ApiInterface apiInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,10 +53,6 @@ public class ProfileActivity extends AppCompatActivity {
         Email.setText(email);
         Picasso.get().load(Urls.image_url+foto).transform(new CircleTransform()).into(showFoto);
 
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("loading....");
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,86 +64,18 @@ public class ProfileActivity extends AppCompatActivity {
         biodata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog.show();
-                user_id  = sessionManger.getUserDetail().get(SessionManager.USER_ID);
-                biodata(user_id);
+                Intent intent = new Intent(ProfileActivity.this, BiodataActivity.class);
+                startActivity(intent);
             }
         });
 
         anggota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog.show();
-                user_id  = sessionManger.getUserDetail().get(SessionManager.USER_ID);
-                anggota(user_id);
+                Intent intent = new Intent(ProfileActivity.this, AnggotaActivity.class);
+                startActivity(intent);
             }
         });
     }
-
-    private void biodata(String user_id) {
-
-        apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<Biodata> biodataCall = apiInterface.biodataResponse(user_id);
-        biodataCall.enqueue(new Callback<Biodata>() {
-            @Override
-            public void onResponse(Call<Biodata> call, Response<Biodata> response) {
-                if (response.body() != null && response.isSuccessful() && response.body().isStatus()){
-                    progressDialog.dismiss();
-
-                    sessionManger = new SessionManager(ProfileActivity.this);
-                    DataBio data = response.body().getData();
-                    sessionManger.createBiodataList(data);
-
-                    Toast.makeText(ProfileActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ProfileActivity.this, BiodataActivity.class);
-                    startActivity(intent);
-                    finish();
-                }else {
-                    progressDialog.dismiss();
-                    Toast.makeText(ProfileActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Biodata> call, Throwable t) {
-                progressDialog.dismiss();
-                Toast.makeText(ProfileActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-
-    private void anggota(String user_id) {
-
-        apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<Keanggotaan> keanggotaanCall = apiInterface.AnggotaanResponse(user_id);
-        keanggotaanCall.enqueue(new Callback<Keanggotaan>() {
-            @Override
-            public void onResponse(Call<Keanggotaan> call, Response<Keanggotaan> response) {
-                if (response.body() != null && response.isSuccessful() && response.body().isStatus()){
-                    progressDialog.dismiss();
-
-                    sessionManger = new SessionManager(ProfileActivity.this);
-                    DataAnggota data = response.body().getDataAnggota();
-                    sessionManger.createAnggotaSession(data);
-
-                    Toast.makeText(ProfileActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ProfileActivity.this, AnggotaActivity.class);
-                    startActivity(intent);
-                    finish();
-                }else {
-                    progressDialog.dismiss();
-                    Toast.makeText(ProfileActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Keanggotaan> call, Throwable t) {
-                progressDialog.dismiss();
-                Toast.makeText(ProfileActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
 
 }

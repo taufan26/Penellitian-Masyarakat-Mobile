@@ -3,6 +3,7 @@ package app.ppip.penelitian_mobile.api;
 import app.ppip.penelitian_mobile.model.biodata.Biodata;
 import app.ppip.penelitian_mobile.model.keanggotaan.Keanggotaan;
 import app.ppip.penelitian_mobile.model.login.Login;
+import app.ppip.penelitian_mobile.model.usulanPengabdian.UsulanPengabdian;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -26,5 +27,11 @@ public interface ApiInterface {
     @POST("keanggotaan.php")
     Call<Keanggotaan> AnggotaanResponse(
             @Field("user_id") String user_id
+    );
+
+    @FormUrlEncoded
+    @POST("usulanPengabdian.php")
+    Call<UsulanPengabdian> USULAN_PENGABDIAN_CALL(
+            @Field("anggota_id") String anggota_id
     );
 }
