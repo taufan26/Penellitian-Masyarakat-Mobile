@@ -20,11 +20,11 @@ public class MainPresenter {
         this.view = view;
     }
 
-    void getData(String anggota_id) {
+    void getData(String user_id) {
         view.showLoading();
 
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<DataUsulanPengabdian>> call = apiInterface.USULAN_PENGABDIAN_CALL(anggota_id);
+        Call<List<DataUsulanPengabdian>> call = apiInterface.USULAN_PENGABDIAN_CALL(user_id);
         call.enqueue(new Callback<List<DataUsulanPengabdian>>() {
             @Override
             public void onResponse(@NonNull  Call<List<DataUsulanPengabdian>> call, @NonNull Response<List<DataUsulanPengabdian>> response) {

@@ -35,6 +35,6 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("usulanPengabdian.php")
     Call<List<DataUsulanPengabdian>> USULAN_PENGABDIAN_CALL(
-            @Field("anggota_id") String anggota_id
+            @Field("user_id") String user_id
     );
 }

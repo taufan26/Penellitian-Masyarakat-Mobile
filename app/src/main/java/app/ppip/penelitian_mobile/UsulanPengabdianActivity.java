@@ -29,7 +29,7 @@ public class UsulanPengabdianActivity extends AppCompatActivity implements MainV
     UsulanAdapter adapter;
     UsulanAdapter.ItemClickListener itemClickListener;
     SessionManager sessionManger;
-    String  anggota_id;
+    String  user_id;
 
     List<DataUsulanPengabdian> data;
 
@@ -38,7 +38,7 @@ public class UsulanPengabdianActivity extends AppCompatActivity implements MainV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usulan_pengabdian);
         sessionManger = new SessionManager(UsulanPengabdianActivity.this);
-        anggota_id  = sessionManger.getAnggotaDetail().get(SessionManager.ANGGOTA_ID_ID);
+        user_id  = sessionManger.getUserDetail().get(SessionManager.USER_ID);
 
         recyclerView = findViewById(R.id.list_usulanpengabdian);
         swipeRefresh = findViewById(R.id.swipe);
@@ -48,10 +48,10 @@ public class UsulanPengabdianActivity extends AppCompatActivity implements MainV
         recyclerView.setLayoutManager(llm);
 
         presenter = new MainPresenter(this);
-        presenter.getData(anggota_id);
+        presenter.getData(user_id);
 
         swipeRefresh.setOnRefreshListener(
-                () -> presenter.getData(anggota_id)
+                () -> presenter.getData(user_id)
         );
 
         itemClickListener = (((view, position) -> {
