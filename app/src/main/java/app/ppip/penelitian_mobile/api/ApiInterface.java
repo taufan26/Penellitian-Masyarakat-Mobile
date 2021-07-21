@@ -5,6 +5,7 @@ import java.util.List;
 import app.ppip.penelitian_mobile.model.biodata.Biodata;
 import app.ppip.penelitian_mobile.model.keanggotaan.Keanggotaan;
 import app.ppip.penelitian_mobile.model.login.Login;
+import app.ppip.penelitian_mobile.model.usulanPenelitian.UsulanPenelitianItem;
 import app.ppip.penelitian_mobile.model.usulanPengabdian.DataUsulanPengabdian;
 import app.ppip.penelitian_mobile.model.usulanPengabdian.UsulanPengabdian;
 import retrofit2.Call;
@@ -35,6 +36,12 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("usulanPengabdian.php")
     Call<List<DataUsulanPengabdian>> USULAN_PENGABDIAN_CALL(
+            @Field("user_id") String user_id
+    );
+
+    @FormUrlEncoded
+    @POST("usulanPenelitian.php")
+    Call<List<UsulanPenelitianItem>> USULAN_PENELITIAN_CALL(
             @Field("user_id") String user_id
     );
 }

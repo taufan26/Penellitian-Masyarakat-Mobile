@@ -25,10 +25,8 @@ import retrofit2.Response;
 
 public class PengabdianFragment  extends Fragment {
 
-    ApiInterface apiInterface;
-    ProgressDialog progressDialog;
+
     SessionManager sessionManger;
-    String  anggota_id;
 
     @Nullable
     @Override
@@ -39,14 +37,20 @@ public class PengabdianFragment  extends Fragment {
         sessionManger = new SessionManager(PengabdianFragment.this.getActivity());
 
         CardView cv_usulan = rootView.findViewById(R.id.menu_usulan_pengabdian);
-        progressDialog = new ProgressDialog(this.getActivity());
-        progressDialog.setMessage("loading....");
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        CardView cv_logbook = rootView.findViewById(R.id.menu_logbook_pengabdian);
 
         cv_usulan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity().getApplicationContext(), UsulanPengabdianActivity.class);
+                startActivity(i);
+            }
+        });
+
+        cv_logbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity().getApplicationContext(), LogbookPengabdianActivity.class);
                 startActivity(i);
             }
         });

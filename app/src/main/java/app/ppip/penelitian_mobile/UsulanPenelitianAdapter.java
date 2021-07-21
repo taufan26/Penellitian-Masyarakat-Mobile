@@ -12,16 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import app.ppip.penelitian_mobile.model.biodata.Biodata;
-import app.ppip.penelitian_mobile.model.usulanPengabdian.DataUsulanPengabdian;
+import app.ppip.penelitian_mobile.model.usulanPenelitian.UsulanPenelitianItem;
 
-public class UsulanAdapter extends RecyclerView.Adapter<UsulanAdapter.RecyclerViewAdapter> {
+public class UsulanPenelitianAdapter extends RecyclerView.Adapter<UsulanPenelitianAdapter.RecyclerViewAdapter> {
 
     private Context context;
-    private List<DataUsulanPengabdian> datas;
-    private ItemClickListener itemClickListener;
+    private List<UsulanPenelitianItem> datas;
+    private UsulanPenelitianAdapter.ItemClickListener itemClickListener;
 
-    public UsulanAdapter(Context context, List<DataUsulanPengabdian> data, ItemClickListener itemClickListener) {
+    public UsulanPenelitianAdapter(Context context, List<UsulanPenelitianItem> data, UsulanPenelitianAdapter.ItemClickListener itemClickListener) {
         this.context = context;
         this.datas = data;
         this.itemClickListener = itemClickListener;
@@ -29,21 +28,21 @@ public class UsulanAdapter extends RecyclerView.Adapter<UsulanAdapter.RecyclerVi
 
     @NonNull
     @Override
-    public RecyclerViewAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public UsulanPenelitianAdapter.RecyclerViewAdapter onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.list_usulan,
                 parent, false);
         return new RecyclerViewAdapter(view, itemClickListener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapter holder, int position) {
+    public void onBindViewHolder(@NonNull UsulanPenelitianAdapter.RecyclerViewAdapter holder, int position) {
 
-        DataUsulanPengabdian datausulan = datas.get(position);
-        holder.tv_judul.setText(datausulan.getUsulanPengabdianJudul());
-        holder.tv_kategori.setText(datausulan.getUsulanPengabdianKategori());
-        holder.tv_tahun.setText(datausulan.getUsulanPengabdianTahun());
-        holder.tv_hari.setText(datausulan.getUsulanPengabdianLamaKegiatan());
-        holder.tv_status.setText(datausulan.getUsulanPengabdianStatus());
+        UsulanPenelitianItem datausulanpenelitian = datas.get(position);
+        holder.tv_judul.setText(datausulanpenelitian.getUsulanPenelitianJudul());
+        holder.tv_kategori.setText(datausulanpenelitian.getUsulanPenelitianKategori());
+        holder.tv_tahun.setText(datausulanpenelitian.getUsulanPenelitianTahun());
+        holder.tv_hari.setText(datausulanpenelitian.getUsulanPenelitianLamaKegiatan());
+        holder.tv_status.setText(datausulanpenelitian.getUsulanPenelitianStatus());
     }
 
     @Override
@@ -55,9 +54,9 @@ public class UsulanAdapter extends RecyclerView.Adapter<UsulanAdapter.RecyclerVi
 
         TextView tv_judul, tv_kategori, tv_tahun, tv_hari, tv_status;
         CardView card_item;
-        ItemClickListener itemClickListener;
+        UsulanPenelitianAdapter.ItemClickListener itemClickListener;
 
-        RecyclerViewAdapter(@NonNull View itemView, ItemClickListener itemClickListener) {
+        RecyclerViewAdapter(@NonNull View itemView, UsulanPenelitianAdapter.ItemClickListener itemClickListener) {
             super(itemView);
 
             tv_judul = itemView.findViewById(R.id.usulan_judul);

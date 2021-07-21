@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".UsulanPenelitainActivity"
+    android:layout_height="wrap_content"
+    tools:context=".UsulanPenelitianActivity"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -39,19 +39,16 @@
     </RelativeLayout>
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffff"
-        android:padding="20dp">
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_penelitian"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_usulan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-    </RelativeLayout>
-
-
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>

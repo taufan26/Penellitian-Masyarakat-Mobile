@@ -10,35 +10,37 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import app.ppip.penelitian_mobile.model.usulanPengabdian.DataUsulanPengabdian;
+import app.ppip.penelitian_mobile.model.usulanPenelitian.UsulanPenelitianItem;
 
-public class UsulanPengabdianActivity extends AppCompatActivity implements PengabdianView {
+public class UsulanPenelitianActivity extends AppCompatActivity implements PenelitianView {
 
     RecyclerView recyclerView;
     SwipeRefreshLayout swipeRefresh;
-    PengabdianPresenter presenter;
-    UsulanPengabdianAdapter adapter;
-    UsulanPengabdianAdapter.ItemClickListener itemClickListener;
+    PenelitianPresenter presenter;
+    UsulanPenelitianAdapter adapter;
+    UsulanPenelitianAdapter.ItemClickListener itemClickListener;
     SessionManager sessionManger;
     String  user_id;
 
-    List<DataUsulanPengabdian> data;
+    List<UsulanPenelitianItem> data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_usulan_pengabdian);
-        sessionManger = new SessionManager(UsulanPengabdianActivity.this);
+        setContentView(R.layout.activity_usulan_penelitain);
+
+
+        sessionManger = new SessionManager(UsulanPenelitianActivity.this);
         user_id  = sessionManger.getUserDetail().get(SessionManager.USER_ID);
 
-        recyclerView = findViewById(R.id.list_usulanpengabdian);
-        swipeRefresh = findViewById(R.id.swipe);
+        swipeRefresh = findViewById(R.id.swipe_penelitian);
+        recyclerView = findViewById(R.id.list_usulan);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(llm);
 
-        presenter = new PengabdianPresenter(this);
+        presenter = new PenelitianPresenter(this);
         presenter.getData(user_id);
 
         swipeRefresh.setOnRefreshListener(
@@ -46,7 +48,7 @@ public class UsulanPengabdianActivity extends AppCompatActivity implements Penga
         );
 
         itemClickListener = (((view, position) -> {
-            String judul = data.get(position).getUsulanPengabdianJudul();
+            String judul = data.get(position).getUsulanPenelitianJudul();
             Toast.makeText(this, judul, Toast.LENGTH_SHORT).show();
         }));
 
@@ -63,8 +65,8 @@ public class UsulanPengabdianActivity extends AppCompatActivity implements Penga
     }
 
     @Override
-    public void onGetResult(List<DataUsulanPengabdian> datas) {
-        adapter = new UsulanPengabdianAdapter(this, datas, itemClickListener);
+    public void onGetResult(List<UsulanPenelitianItem> datas) {
+        adapter = new UsulanPenelitianAdapter(this, datas, itemClickListener);
         adapter.notifyDataSetChanged();
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);

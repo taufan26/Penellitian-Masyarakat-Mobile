@@ -7,16 +7,15 @@ import java.util.List;
 import app.ppip.penelitian_mobile.api.ApiClient;
 import app.ppip.penelitian_mobile.api.ApiInterface;
 import app.ppip.penelitian_mobile.model.usulanPengabdian.DataUsulanPengabdian;
-import app.ppip.penelitian_mobile.model.usulanPengabdian.UsulanPengabdian;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainPresenter {
+public class PengabdianPresenter {
 
-    private MainView view;
+    private PengabdianView view;
 
-    public MainPresenter(MainView view) {
+    public PengabdianPresenter(PengabdianView view) {
         this.view = view;
     }
 

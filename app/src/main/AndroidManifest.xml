@@ -22,7 +22,7 @@
         <activity android:name=".AnggotaActivity" />
         <activity android:name=".BiodataActivity" />
         <activity android:name=".LogbookPenelitianActivity" />
-        <activity android:name=".UsulanPenelitainActivity" />
+        <activity android:name=".UsulanPenelitianActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".MainActivity" >
             <intent-filter>
