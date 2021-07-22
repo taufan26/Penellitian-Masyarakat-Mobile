@@ -30,7 +30,7 @@
             <TextView
                 android:layout_marginTop="6dp"
                 android:layout_below="@+id/txtdasboard"
-                android:text="P3M Mobile APP"
+                android:text="SIMTABMAS POLINDRA"
                 android:textSize="14sp"
                 android:textColor="#FFFFFF"
                 android:layout_width="wrap_content"
@@ -51,38 +51,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:src="@drawable/news"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
-
-                    <TextView
-                        android:layout_marginTop="12dp"
-                        android:textColor="#6f6f6f"
-                        android:textSize="18sp"
-                        android:text="Pengumuman"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -110,6 +78,13 @@
                         android:textColor="#6f6f6f"
                         android:textSize="18sp"
                         android:text="Info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_marginTop="12dp"
+                        android:textColor="#6f6f6f"
+                        android:textSize="18sp"
+                        android:text="Aplikasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -143,47 +118,66 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#6f6f6f"
                         android:textSize="18sp"
-                        android:text="Profile"
+                        android:text="Profil"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/menu_logout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:src="@drawable/cancel"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"/>
-
                     <TextView
                         android:layout_marginTop="12dp"
                         android:textColor="#6f6f6f"
                         android:textSize="18sp"
-                        android:text="Logout"
+                        android:text="Pengusul"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
+
+
+        </GridLayout>
+
+
+        <GridLayout
+
+            android:columnOrderPreserved="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/menu_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="6dp"
+            app:cardCornerRadius="12dp"
+            android:layout_margin="12dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@drawable/cancel"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:textColor="#6f6f6f"
+                    android:textSize="18sp"
+                    android:text="Logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
         </GridLayout>
 
