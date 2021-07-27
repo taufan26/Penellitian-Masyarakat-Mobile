@@ -1,8 +1,10 @@
-package app.ppip.penelitian_mobile;
+package app.ppip.penelitian_mobile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import app.ppip.penelitian_mobile.R;
 
 public class LogbookPenelitianActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package app.ppip.penelitian_mobile;
+package app.ppip.penelitian_mobile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,8 +9,9 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.Space;
 import android.widget.TextView;
+
+import app.ppip.penelitian_mobile.R;
 
 public class SplashActivity extends AppCompatActivity {
 

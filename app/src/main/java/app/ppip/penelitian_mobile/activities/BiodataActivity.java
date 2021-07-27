@@ -1,4 +1,4 @@
-package app.ppip.penelitian_mobile;
+package app.ppip.penelitian_mobile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+
+import app.ppip.penelitian_mobile.utils.CircleTransform;
+import app.ppip.penelitian_mobile.R;
+import app.ppip.penelitian_mobile.adapters.SessionManager;
+import app.ppip.penelitian_mobile.utils.Urls;
 
 public class BiodataActivity extends AppCompatActivity {
 

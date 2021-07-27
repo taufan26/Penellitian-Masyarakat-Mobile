@@ -17,21 +17,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Penelitian_Mobile"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".activities.UsulanDetailActivity"></activity>
+        <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LogbookPengabdianActivity" />
-        <activity android:name=".UsulanPengabdianActivity" />
-        <activity android:name=".AnggotaActivity" />
-        <activity android:name=".BiodataActivity" />
-        <activity android:name=".LogbookPenelitianActivity" />
-        <activity android:name=".UsulanPenelitianActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".activities.LogbookPengabdianActivity" />
+        <activity android:name=".activities.UsulanPengabdianActivity" />
+        <activity android:name=".activities.AnggotaActivity" />
+        <activity android:name=".activities.BiodataActivity" />
+        <activity android:name=".activities.LogbookPenelitianActivity" />
+        <activity android:name=".activities.UsulanPenelitianActivity" />
+        <activity android:name=".activities.ProfileActivity" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.MainActivity" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

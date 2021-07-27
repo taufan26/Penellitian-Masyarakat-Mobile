@@ -1,4 +1,4 @@
-package app.ppip.penelitian_mobile;
+package app.ppip.penelitian_mobile.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;

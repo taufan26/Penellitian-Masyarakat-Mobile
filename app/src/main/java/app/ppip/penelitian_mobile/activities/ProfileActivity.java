@@ -1,27 +1,19 @@
-package app.ppip.penelitian_mobile;
+package app.ppip.penelitian_mobile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import app.ppip.penelitian_mobile.api.ApiClient;
-import app.ppip.penelitian_mobile.api.ApiInterface;
-import app.ppip.penelitian_mobile.model.biodata.Biodata;
-import app.ppip.penelitian_mobile.model.biodata.DataBio;
-import app.ppip.penelitian_mobile.model.keanggotaan.DataAnggota;
-import app.ppip.penelitian_mobile.model.keanggotaan.Keanggotaan;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import app.ppip.penelitian_mobile.utils.CircleTransform;
+import app.ppip.penelitian_mobile.R;
+import app.ppip.penelitian_mobile.adapters.SessionManager;
+import app.ppip.penelitian_mobile.utils.Urls;
 
 public class ProfileActivity extends AppCompatActivity {
 

@@ -1,27 +1,20 @@
-package app.ppip.penelitian_mobile;
+package app.ppip.penelitian_mobile.fragments;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import app.ppip.penelitian_mobile.api.ApiClient;
-import app.ppip.penelitian_mobile.api.ApiInterface;
-import app.ppip.penelitian_mobile.model.keanggotaan.DataAnggota;
-import app.ppip.penelitian_mobile.model.keanggotaan.Keanggotaan;
-import app.ppip.penelitian_mobile.model.usulanPengabdian.DataUsulanPengabdian;
-import app.ppip.penelitian_mobile.model.usulanPengabdian.UsulanPengabdian;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import app.ppip.penelitian_mobile.R;
+import app.ppip.penelitian_mobile.adapters.SessionManager;
+import app.ppip.penelitian_mobile.activities.LogbookPengabdianActivity;
+import app.ppip.penelitian_mobile.activities.UsulanPengabdianActivity;
 
 public class PengabdianFragment  extends Fragment {
 

@@ -1,4 +1,4 @@
-package app.ppip.penelitian_mobile;
+package app.ppip.penelitian_mobile.adapters;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import java.util.HashMap;
 
 import app.ppip.penelitian_mobile.model.biodata.DataBio;
+import app.ppip.penelitian_mobile.model.feature.FeatureItem;
 import app.ppip.penelitian_mobile.model.keanggotaan.DataAnggota;
 import app.ppip.penelitian_mobile.model.login.Data;
 import app.ppip.penelitian_mobile.model.usulanPengabdian.DataUsulanPengabdian;
@@ -50,22 +51,15 @@ public class SessionManager {
     public static final String ANGGOTA_CREATE = "created_at";
     public static final String ANGGOTA_UPDATE = "updated_at";
 
-    //usulanPengabdian
-    //Anggota
-    public static final String USULAN_PENGADIAN_ID = "usulan_pengabdian_id ";
-    public static final String USULAN_PENGADIAN_REVIEWER_ID = "usulan_pengabdian_reviewer_id";
-    public static final String USULAN_PENGADIAN_JUDUL = "usulan_pengabdian_judul";
-    public static final String USULAN_PENGADIAN_KATEGORI = "usulan_pengabdian_kategori";
-    public static final String USULAN_PENGADIAN_SKEMA_ID = "usulan_pengabdian_skema_id";
-    public static final String USULAN_PENGADIAN_BIDANG_ID = "usulan_pengabdian_bidang_id";
-    public static final String USULAN_PENGADIAN_KEGIATAN = "usulan_pengabdian_lama_kegiatan";
-    public static final String USULAN_PENGADIAN_MAHASISWA = "usulan_pengabdian_mahasiswa_terlibat";
-    public static final String USULAN_PENGADIAN_TAHUN = "usulan_pengabdian_tahun";
-    public static final String USULAN_PENGADIAN_SUBMIT = "usulan_pengabdian_submit";
-    public static final String USULAN_PENGADIAN_STATUS = "usulan_pengabdian_status";
-    public static final String USULAN_PENGADIAN_KOMENTAR = "usulan_pengabdian_komentar";
-    public static final String USULAN_PENGADIAN_CREATE = "created_at";
-    public static final String USULAN_PENGADIAN_UPDATE = "updated_at";
+    //feature
+    public static final String UNLOCK_FEATURE_ID = "unlock_feature_id ";
+    public static final String UNLOCK_FEATURE_NAME = "unlock_feature_name";
+    public static final String UNLOCK_FEATURE_START_YEAR = "unlock_feature_start_year";
+    public static final String UNLOCK_FEATURE_END_YEAR = "unlock_feature_end_year";
+    public static final String UNLOCK_FEATURE_START_TIME = "unlock_feature_start_time";
+    public static final String UNLOCK_FEATURE_END_TIME = "unlock_feature_end_time";
+    public static final String UNLOCK_FEATURE_CREATE_AT = "created_at";
+    public static final String UNLOCK_FEATURE_UPDATE_AT = "updated_at";
 
     public SessionManager (Context context){
         this._context = context;
@@ -162,40 +156,28 @@ public class SessionManager {
 
     //USULAN PENGABDIAN
 
-    public void createUsulanPengabdianSession(DataUsulanPengabdian user){
-        editor.putString(USULAN_PENGADIAN_ID, user.getUsulanPengabdianId());
-        editor.putString(USULAN_PENGADIAN_REVIEWER_ID, user.getUsulanPengabdianReviewerId());
-        editor.putString(USULAN_PENGADIAN_JUDUL, user.getUsulanPengabdianJudul());
-        editor.putString(USULAN_PENGADIAN_KATEGORI, user.getUsulanPengabdianKategori());
-        editor.putString(USULAN_PENGADIAN_SKEMA_ID, user.getUsulanPengabdianSkemaId());
-        editor.putString(USULAN_PENGADIAN_BIDANG_ID, user.getUsulanPengabdianBidangId());
-        editor.putString(USULAN_PENGADIAN_KEGIATAN, user.getUsulanPengabdianLamaKegiatan());
-        editor.putString(USULAN_PENGADIAN_MAHASISWA, user.getUsulanPengabdianMahasiswaTerlibat());
-        editor.putString(USULAN_PENGADIAN_TAHUN, user.getUsulanPengabdianTahun());
-        editor.putString(USULAN_PENGADIAN_SUBMIT, user.getUsulanPengabdianSubmit());
-        editor.putString(USULAN_PENGADIAN_STATUS, user.getUsulanPengabdianStatus());
-        editor.putString(USULAN_PENGADIAN_KOMENTAR, user.getUsulanPengabdianKomentar());
-        editor.putString(USULAN_PENGADIAN_CREATE, user.getCreatedAt());
-        editor.putString(USULAN_PENGADIAN_UPDATE, user.getUpdatedAt());
+    public void createFeatureSession(FeatureItem feature){
+        editor.putString(UNLOCK_FEATURE_ID, feature.getUnlockFeatureId());
+        editor.putString(UNLOCK_FEATURE_NAME, feature.getUnlockFeatureName());
+        editor.putString(UNLOCK_FEATURE_START_YEAR, feature.getUnlockFeatureStartYear());
+        editor.putString(UNLOCK_FEATURE_END_YEAR, feature.getUnlockFeatureEndYear());
+        editor.putString(UNLOCK_FEATURE_START_TIME, feature.getUnlockFeatureStartTime());
+        editor.putString(UNLOCK_FEATURE_END_TIME, feature.getUnlockFeatureEndTime());
+        editor.putString(UNLOCK_FEATURE_CREATE_AT, feature.getCreatedAt());
+        editor.putString(UNLOCK_FEATURE_UPDATE_AT, feature.getUpdatedAt());
         editor.commit();
     }
 
-    public HashMap<String,String> getUsulanPengabdianDetail(){
+    public HashMap<String,String> getFeatureDetail(){
         HashMap<String,String> user = new HashMap<>();
-        user.put(USULAN_PENGADIAN_ID, sharedPreferences.getString(USULAN_PENGADIAN_ID,null));
-        user.put(USULAN_PENGADIAN_REVIEWER_ID, sharedPreferences.getString(USULAN_PENGADIAN_REVIEWER_ID,null));
-        user.put(USULAN_PENGADIAN_JUDUL, sharedPreferences.getString(USULAN_PENGADIAN_JUDUL,null));
-        user.put(USULAN_PENGADIAN_KATEGORI, sharedPreferences.getString(USULAN_PENGADIAN_KATEGORI,null));
-        user.put(USULAN_PENGADIAN_SKEMA_ID, sharedPreferences.getString(USULAN_PENGADIAN_SKEMA_ID,null));
-        user.put(USULAN_PENGADIAN_BIDANG_ID, sharedPreferences.getString(USULAN_PENGADIAN_BIDANG_ID,null));
-        user.put(USULAN_PENGADIAN_KEGIATAN, sharedPreferences.getString(USULAN_PENGADIAN_KEGIATAN,null));
-        user.put(USULAN_PENGADIAN_MAHASISWA, sharedPreferences.getString(USULAN_PENGADIAN_MAHASISWA,null));
-        user.put(USULAN_PENGADIAN_TAHUN, sharedPreferences.getString(USULAN_PENGADIAN_TAHUN,null));
-        user.put(USULAN_PENGADIAN_SUBMIT, sharedPreferences.getString(USULAN_PENGADIAN_SUBMIT,null));
-        user.put(USULAN_PENGADIAN_STATUS, sharedPreferences.getString(USULAN_PENGADIAN_STATUS,null));
-        user.put(USULAN_PENGADIAN_KOMENTAR, sharedPreferences.getString(USULAN_PENGADIAN_KOMENTAR,null));
-        user.put(USULAN_PENGADIAN_CREATE, sharedPreferences.getString(USULAN_PENGADIAN_CREATE,null));
-        user.put(USULAN_PENGADIAN_UPDATE, sharedPreferences.getString(USULAN_PENGADIAN_UPDATE,null));
+        user.put(UNLOCK_FEATURE_ID, sharedPreferences.getString(UNLOCK_FEATURE_ID,null));
+        user.put(UNLOCK_FEATURE_NAME, sharedPreferences.getString(UNLOCK_FEATURE_NAME,null));
+        user.put(UNLOCK_FEATURE_START_YEAR, sharedPreferences.getString(UNLOCK_FEATURE_START_YEAR,null));
+        user.put(UNLOCK_FEATURE_END_YEAR, sharedPreferences.getString(UNLOCK_FEATURE_END_YEAR,null));
+        user.put(UNLOCK_FEATURE_START_TIME, sharedPreferences.getString(UNLOCK_FEATURE_START_TIME,null));
+        user.put(UNLOCK_FEATURE_END_TIME, sharedPreferences.getString(UNLOCK_FEATURE_END_TIME,null));
+        user.put(UNLOCK_FEATURE_CREATE_AT, sharedPreferences.getString(UNLOCK_FEATURE_CREATE_AT,null));
+        user.put(UNLOCK_FEATURE_UPDATE_AT, sharedPreferences.getString(UNLOCK_FEATURE_UPDATE_AT,null));
         return user;
     }
 

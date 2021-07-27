@@ -1,4 +1,4 @@
-package app.ppip.penelitian_mobile;
+package app.ppip.penelitian_mobile.interfaces;
 
 import java.util.List;
 

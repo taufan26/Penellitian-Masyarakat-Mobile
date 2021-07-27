@@ -1,4 +1,4 @@
-package app.ppip.penelitian_mobile;
+package app.ppip.penelitian_mobile.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,10 +12,17 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import app.ppip.penelitian_mobile.R;
+import app.ppip.penelitian_mobile.activities.UsulanPenelitianActivity;
+import app.ppip.penelitian_mobile.adapters.SessionManager;
+import app.ppip.penelitian_mobile.activities.LoginActivity;
+import app.ppip.penelitian_mobile.activities.ProfileActivity;
 import app.ppip.penelitian_mobile.api.ApiClient;
 import app.ppip.penelitian_mobile.api.ApiInterface;
 import app.ppip.penelitian_mobile.model.biodata.Biodata;
 import app.ppip.penelitian_mobile.model.biodata.DataBio;
+import app.ppip.penelitian_mobile.model.feature.Feature;
+import app.ppip.penelitian_mobile.model.feature.FeatureItem;
 import app.ppip.penelitian_mobile.model.keanggotaan.DataAnggota;
 import app.ppip.penelitian_mobile.model.keanggotaan.Keanggotaan;
 import retrofit2.Call;
@@ -43,6 +50,7 @@ public class HomeFragment extends Fragment {
         user_id  = sessionManager.getUserDetail().get(SessionManager.USER_ID);
         biodata(user_id);
         anggota(user_id);
+        getfeature();
 
         cv_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +124,27 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<Biodata> call, Throwable t) {
+                Toast.makeText(HomeFragment.this.getActivity(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void getfeature() {
+
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        Call<Feature> featurecall = apiInterface.GetFeture();
+        featurecall.enqueue(new Callback<Feature>() {
+            @Override
+            public void onResponse(@NonNull Call<Feature> call, @NonNull Response<Feature> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    sessionManager = new SessionManager(HomeFragment.this.getActivity());
+                    FeatureItem data = response.body().getData();
+                    sessionManager.createFeatureSession(data);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Feature> call, Throwable t) {
                 Toast.makeText(HomeFragment.this.getActivity(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });

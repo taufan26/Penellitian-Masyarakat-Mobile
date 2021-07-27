@@ -1,4 +1,4 @@
-package app.ppip.penelitian_mobile;
+package app.ppip.penelitian_mobile.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+
+import app.ppip.penelitian_mobile.R;
+import app.ppip.penelitian_mobile.adapters.SessionManager;
+import app.ppip.penelitian_mobile.activities.LogbookPenelitianActivity;
+import app.ppip.penelitian_mobile.activities.UsulanPenelitianActivity;
 
 public class PenelitianFragment extends Fragment {
 

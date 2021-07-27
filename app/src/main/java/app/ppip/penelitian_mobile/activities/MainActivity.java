@@ -1,17 +1,18 @@
-package app.ppip.penelitian_mobile;
+package app.ppip.penelitian_mobile.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import app.ppip.penelitian_mobile.fragments.HomeFragment;
+import app.ppip.penelitian_mobile.fragments.PenelitianFragment;
+import app.ppip.penelitian_mobile.fragments.PengabdianFragment;
+import app.ppip.penelitian_mobile.R;
 
 public class MainActivity extends AppCompatActivity {
 

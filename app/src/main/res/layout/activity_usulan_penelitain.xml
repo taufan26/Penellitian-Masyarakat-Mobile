@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".UsulanPenelitianActivity"
+    tools:context=".activities.UsulanPenelitianActivity"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtdasboard"
             android:layout_marginTop="6dp"
-            android:text="Penelitan Mobile APP"
+            android:text="Penelitian"
             android:textColor="#FFFFFF"
             android:textSize="14sp" />
 
@@ -37,6 +37,123 @@
             android:src="@drawable/logo_polindra" />
 
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="5dp"
+        android:background="#3161FF"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/waktu_pelaksanaan_penelitian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Waktu Pelaksanaan Usulan"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/periode_title_penelitian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Periode : "
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:id="@+id/periode_penelitan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="2dp"
+                android:text="2021"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="2dp"
+                android:text="/"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:id="@+id/periode_akhir_penelitan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="2022"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/mulai_title_penelitian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Mulai : "
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:id="@+id/mulai_penelitian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="6dp"
+                android:text="2021"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/selesai_title_penelitian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Selesai : "
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:id="@+id/selesai_penelitian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="2021"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

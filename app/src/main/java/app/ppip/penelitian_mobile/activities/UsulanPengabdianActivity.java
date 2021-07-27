@@ -1,4 +1,4 @@
-package app.ppip.penelitian_mobile;
+package app.ppip.penelitian_mobile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,10 +6,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
+import app.ppip.penelitian_mobile.interfaces.PengabdianView;
+import app.ppip.penelitian_mobile.R;
+import app.ppip.penelitian_mobile.adapters.SessionManager;
+import app.ppip.penelitian_mobile.adapters.UsulanPengabdianAdapter;
 import app.ppip.penelitian_mobile.model.usulanPengabdian.DataUsulanPengabdian;
 
 public class UsulanPengabdianActivity extends AppCompatActivity implements PengabdianView {
@@ -20,7 +25,8 @@ public class UsulanPengabdianActivity extends AppCompatActivity implements Penga
     UsulanPengabdianAdapter adapter;
     UsulanPengabdianAdapter.ItemClickListener itemClickListener;
     SessionManager sessionManger;
-    String  user_id;
+    String  user_id, Tahun, Mulai, Selesai, TahunAkhir;
+    TextView tahun, mulai, selesai, akhir;
 
     List<DataUsulanPengabdian> data;
 
@@ -33,6 +39,10 @@ public class UsulanPengabdianActivity extends AppCompatActivity implements Penga
 
         recyclerView = findViewById(R.id.list_usulanpengabdian);
         swipeRefresh = findViewById(R.id.swipe);
+        tahun = findViewById(R.id.periode_pengabdian);
+        akhir = findViewById(R.id.periode_akhir_pengabdian);
+        mulai = findViewById(R.id.mulai_pengabdian);
+        selesai = findViewById(R.id.selesai_pengabdian);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
@@ -49,6 +59,15 @@ public class UsulanPengabdianActivity extends AppCompatActivity implements Penga
             String judul = data.get(position).getUsulanPengabdianJudul();
             Toast.makeText(this, judul, Toast.LENGTH_SHORT).show();
         }));
+
+        Tahun = sessionManger.getFeatureDetail().get(SessionManager.UNLOCK_FEATURE_START_YEAR);
+        TahunAkhir = sessionManger.getFeatureDetail().get(SessionManager.UNLOCK_FEATURE_END_YEAR);
+        Mulai = sessionManger.getFeatureDetail().get(SessionManager.UNLOCK_FEATURE_START_TIME);
+        Selesai = sessionManger.getFeatureDetail().get(SessionManager.UNLOCK_FEATURE_END_TIME);
+        tahun.setText(Tahun);
+        mulai.setText(Mulai);
+        selesai.setText(Selesai);
+        akhir.setText(TahunAkhir);
 
     }
 

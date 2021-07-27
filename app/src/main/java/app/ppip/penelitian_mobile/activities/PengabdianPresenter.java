@@ -1,4 +1,4 @@
-package app.ppip.penelitian_mobile;
+package app.ppip.penelitian_mobile.activities;
 
 import androidx.annotation.NonNull;
 
@@ -6,6 +6,7 @@ import java.util.List;
 
 import app.ppip.penelitian_mobile.api.ApiClient;
 import app.ppip.penelitian_mobile.api.ApiInterface;
+import app.ppip.penelitian_mobile.interfaces.PengabdianView;
 import app.ppip.penelitian_mobile.model.usulanPengabdian.DataUsulanPengabdian;
 import retrofit2.Call;
 import retrofit2.Callback;
