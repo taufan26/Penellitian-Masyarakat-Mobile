@@ -61,6 +61,10 @@ public class SessionManager {
     public static final String UNLOCK_FEATURE_CREATE_AT = "created_at";
     public static final String UNLOCK_FEATURE_UPDATE_AT = "updated_at";
 
+    //feature
+    public static final String USULAN_PENELITIAN_JUDUL = "usulan_penelitian_judul ";
+
+
     public SessionManager (Context context){
         this._context = context;
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -181,6 +185,17 @@ public class SessionManager {
         return user;
     }
 
+
+    public void createUsulan(app.ppip.penelitian_mobile.model.usulanLogbook.Data data){
+        editor.putString(USULAN_PENELITIAN_JUDUL, data.getUsulanPenelitianJudul());
+        editor.commit();
+    }
+
+    public HashMap<String,String> getUsualanJudul(){
+        HashMap<String,String> user = new HashMap<>();
+        user.put(USULAN_PENELITIAN_JUDUL, sharedPreferences.getString(USULAN_PENELITIAN_JUDUL,null));
+        return user;
+    }
 
 
 

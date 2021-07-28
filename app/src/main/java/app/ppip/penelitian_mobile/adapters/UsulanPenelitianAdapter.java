@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import app.ppip.penelitian_mobile.R;
-import app.ppip.penelitian_mobile.activities.UsulanPenelitianActivity;
-import app.ppip.penelitian_mobile.model.feature.FeatureItem;
 import app.ppip.penelitian_mobile.model.usulanPenelitian.UsulanPenelitianItem;
 
 public class UsulanPenelitianAdapter extends RecyclerView.Adapter<UsulanPenelitianAdapter.RecyclerViewAdapter> {
