@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ import app.ppip.penelitian_mobile.model.usulanPengabdian.DataUsulanPengabdian;
 
 public class UsulanPengabdianActivity extends AppCompatActivity implements PengabdianView {
 
+    private static final int INTENT_DETAIL_PENGABDIAN = 100;
     RecyclerView recyclerView;
     SwipeRefreshLayout swipeRefresh;
     PengabdianPresenter presenter;
@@ -57,7 +59,33 @@ public class UsulanPengabdianActivity extends AppCompatActivity implements Penga
 
         itemClickListener = (((view, position) -> {
             String judul = data.get(position).getUsulanPengabdianJudul();
-            Toast.makeText(this, judul, Toast.LENGTH_SHORT).show();
+            String id = data.get(position).getUsulanPengabdianId();
+            String reviewer_id = data.get(position).getUsulanPengabdianReviewerId();
+            String kategori = data.get(position).getUsulanPengabdianKategori();
+            String skema_id = data.get(position).getUsulanPengabdianSkemaId();
+            String bidang_id = data.get(position).getUsulanPengabdianBidangId();
+            String lama_kegiatan = data.get(position).getUsulanPengabdianLamaKegiatan();
+            String tahun = data.get(position).getUsulanPengabdianTahun();
+            String submit = data.get(position).getUsulanPengabdianSubmit();
+            String status = data.get(position).getUsulanPengabdianStatus();
+            String komentar = data.get(position).getUsulanPengabdianKomentar();
+            String mahasiswa = data.get(position).getUsulanPengabdianMahasiswaTerlibat();
+
+
+            Intent intent = new Intent(this, UsulanDetailPengabdianActivity.class);
+            intent.putExtra("id", id);
+            intent.putExtra("judul", judul);
+            intent.putExtra("reviewer_id", reviewer_id);
+            intent.putExtra("kategori", kategori);
+            intent.putExtra("skema_id", skema_id);
+            intent.putExtra("bidang_id", bidang_id);
+            intent.putExtra("lama_kegiatan", lama_kegiatan);
+            intent.putExtra("tahun", tahun);
+            intent.putExtra("submit", submit);
+            intent.putExtra("status", status);
+            intent.putExtra("komentar", komentar);
+            intent.putExtra("mahasiswa", mahasiswa);
+            startActivityForResult(intent, INTENT_DETAIL_PENGABDIAN);
         }));
 
         Tahun = sessionManger.getFeatureDetail().get(SessionManager.UNLOCK_FEATURE_START_YEAR);

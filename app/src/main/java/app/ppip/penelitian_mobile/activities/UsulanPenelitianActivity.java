@@ -1,6 +1,5 @@
 package app.ppip.penelitian_mobile.activities;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,18 +13,13 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import app.ppip.penelitian_mobile.api.ApiClient;
 import app.ppip.penelitian_mobile.api.ApiInterface;
 import app.ppip.penelitian_mobile.interfaces.PenelitianView;
 import app.ppip.penelitian_mobile.R;
 import app.ppip.penelitian_mobile.adapters.SessionManager;
 import app.ppip.penelitian_mobile.adapters.UsulanPenelitianAdapter;
-import app.ppip.penelitian_mobile.model.feature.Feature;
 import app.ppip.penelitian_mobile.model.feature.FeatureItem;
 import app.ppip.penelitian_mobile.model.usulanPenelitian.UsulanPenelitianItem;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class UsulanPenelitianActivity extends AppCompatActivity implements PenelitianView {
 
@@ -37,11 +31,9 @@ public class UsulanPenelitianActivity extends AppCompatActivity implements Penel
     UsulanPenelitianAdapter.ItemClickListener itemClickListener;
     SessionManager sessionManager;
     String user_id, Tahun, Mulai, Selesai, TahunAkhir;
-    ApiInterface apiInterface;
     TextView tahun, mulai, selesai, akhir;
 
     List<UsulanPenelitianItem> data;
-    List<FeatureItem> featureItemList;
 
 
     @Override
@@ -88,7 +80,7 @@ public class UsulanPenelitianActivity extends AppCompatActivity implements Penel
             String mahasiswa = data.get(position).getUsulanPenelitianMahasiswaTerlibat();
 
 
-            Intent intent = new Intent(this, UsulanDetailActivity.class);
+            Intent intent = new Intent(this, UsulanDetailPenelitianActivity.class);
             intent.putExtra("id", id);
             intent.putExtra("judul", judul);
             intent.putExtra("reviewer_id", reviewer_id);

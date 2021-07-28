@@ -17,7 +17,7 @@
             android:id="@+id/txtdasboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Usulan"
+            android:text="Usulan Pengabdian"
             android:textColor="#FFFFFF"
             android:textSize="22sp" />
 
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtdasboard"
             android:layout_marginTop="6dp"
-            android:text="Pengabdian"
+            android:text="SIMTABMAS POLINDRA"
             android:textColor="#FFFFFF"
             android:textSize="14sp" />
 

@@ -20,6 +20,7 @@ public class UsulanPengabdianAdapter extends RecyclerView.Adapter<UsulanPengabdi
     private Context context;
     private List<DataUsulanPengabdian> datas;
     private ItemClickListener itemClickListener;
+    String Status;
 
     public UsulanPengabdianAdapter(Context context, List<DataUsulanPengabdian> data, ItemClickListener itemClickListener) {
         this.context = context;
@@ -42,8 +43,20 @@ public class UsulanPengabdianAdapter extends RecyclerView.Adapter<UsulanPengabdi
         holder.tv_judul.setText(datausulan.getUsulanPengabdianJudul());
         holder.tv_tahun.setText(datausulan.getUsulanPengabdianTahun());
         holder.tv_hari.setText(datausulan.getUsulanPengabdianLamaKegiatan());
-        holder.tv_status.setText(datausulan.getUsulanPengabdianStatus());
-    }
+        Status = datausulan.getUsulanPengabdianStatus();
+        if (Status.equals("diterima")){
+            holder.tv_status.setText("Diterima");
+        }else if (Status.equals("dikirim")) {
+            holder.tv_status.setText("Dikirim");
+        }else if (Status.equals("ditolak")) {
+            holder.tv_status.setText("Ditolak");
+        }else if (Status.equals("dinilai")) {
+            holder.tv_status.setText("Dinilai");
+        }else if (Status.equals("pending")) {
+            holder.tv_status.setText("Pending");
+        }else if (Status.equals("revisi")) {
+            holder.tv_status.setText("Revisi");
+        }    }
 
     @Override
     public int getItemCount() {
@@ -64,6 +77,7 @@ public class UsulanPengabdianAdapter extends RecyclerView.Adapter<UsulanPengabdi
             tv_hari = itemView.findViewById(R.id.usulan_hari);
             tv_status = itemView.findViewById(R.id.usulan_status);
             card_item = itemView.findViewById(R.id.card_usulan);
+
 
             this.itemClickListener = itemClickListener;
             card_item.setOnClickListener(this);

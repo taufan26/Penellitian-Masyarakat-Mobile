@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.UsulanDetailPenelitianActivity"
+    tools:context=".activities.UsulanDetailPengabdianActivity"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -67,7 +67,7 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/detail_judul_penelitian"
+                android:id="@+id/detail_judul_pengabdian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -94,7 +94,7 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/detail_kegiatan_penelitan"
+                android:id="@+id/detail_kegiatan_pengabdian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -131,7 +131,7 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/detail_tahun_penelitan"
+                android:id="@+id/detail_tahun_pengabdian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -159,7 +159,7 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/detail_status_penelitan"
+                android:id="@+id/detail_status_pengabdian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -187,7 +187,7 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/detail_pengusul_penelitan"
+                android:id="@+id/detail_pengusul_pengabdian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -215,7 +215,7 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/detail_bidang_penelitan"
+                android:id="@+id/detail_bidang_pengabdian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -243,7 +243,7 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/detail_Skema_penelitan"
+                android:id="@+id/detail_Skema_pengabdian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -272,7 +272,7 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/detail_komentar_penelitan"
+                android:id="@+id/detail_komentar_pengabdian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -300,7 +300,7 @@
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/detail_mahasiswa_penelitan"
+                android:id="@+id/detail_mahasiswa_pengabdian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -335,7 +335,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/detail_penelitan_btn"
+                android:id="@+id/detail_pengabdian_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
