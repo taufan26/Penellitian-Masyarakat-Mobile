@@ -50,6 +50,7 @@ public class LogbookPenelitianActivity extends AppCompatActivity implements Logb
         presenter = new LogbookPenelitianPresenter(this);
         presenter.getDataLogbook(user_id);
 
+
         swipeRefresh.setOnRefreshListener(
                 () -> presenter.getDataLogbook(user_id)
         );

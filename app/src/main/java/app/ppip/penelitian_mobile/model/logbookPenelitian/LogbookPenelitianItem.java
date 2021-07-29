@@ -25,6 +25,9 @@ public class LogbookPenelitianItem{
 	@SerializedName("logbook_presentase")
 	private String logbookPresentase;
 
+	@SerializedName("usulan_penelitian_judul")
+	private String usulanPenelitianJudul;
+
 	public String getLogbookDate(){
 		return logbookDate;
 	}
@@ -52,4 +55,9 @@ public class LogbookPenelitianItem{
 	public String getLogbookPresentase(){
 		return logbookPresentase;
 	}
+
+	public String getUsulanPenelitianJudul(){
+		return usulanPenelitianJudul;
+	}
+
 }

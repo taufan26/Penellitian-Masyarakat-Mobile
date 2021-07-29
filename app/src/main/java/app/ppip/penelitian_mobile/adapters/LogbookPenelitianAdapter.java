@@ -40,6 +40,7 @@ public class LogbookPenelitianAdapter extends RecyclerView.Adapter<LogbookPeneli
     @Override
     public void onBindViewHolder(@NonNull LogbookPenelitianAdapter.RecyclerViewAdapter holder, int position) {
         LogbookPenelitianItem datalogbook = datas.get(position);
+        holder.tv_judul.setText(datalogbook.getUsulanPenelitianJudul());
         holder.tv_tahun.setText(datalogbook.getLogbookDate());
         holder.tv_presentase.setText(datalogbook.getLogbookPresentase());
         holder.tv_kegiatan.setText(datalogbook.getLogbookUraianKegiatan());

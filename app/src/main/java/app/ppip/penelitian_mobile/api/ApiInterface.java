@@ -4,16 +4,12 @@ import java.util.List;
 
 import app.ppip.penelitian_mobile.model.biodata.Biodata;
 import app.ppip.penelitian_mobile.model.feature.Feature;
-import app.ppip.penelitian_mobile.model.feature.FeatureItem;
 import app.ppip.penelitian_mobile.model.keanggotaan.Keanggotaan;
 import app.ppip.penelitian_mobile.model.logbookPenelitian.LogbookPenelitianItem;
 import app.ppip.penelitian_mobile.model.logbookPengabdian.LogbookPengabdianItem;
 import app.ppip.penelitian_mobile.model.login.Login;
-import app.ppip.penelitian_mobile.model.usulanLogbook.Data;
-import app.ppip.penelitian_mobile.model.usulanLogbook.UsulanLogbook;
 import app.ppip.penelitian_mobile.model.usulanPenelitian.UsulanPenelitianItem;
 import app.ppip.penelitian_mobile.model.usulanPengabdian.DataUsulanPengabdian;
-import app.ppip.penelitian_mobile.model.usulanPengabdian.UsulanPengabdian;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -58,12 +54,6 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("logbookPenelitian.php")
     Call<List<LogbookPenelitianItem>> LOGBOOK_PENELITAN_CALL(
-            @Field("user_id") String user_id
-    );
-
-    @FormUrlEncoded
-    @POST("usulanLogbook.php")
-    Call<UsulanLogbook> UsulanLogbook_CALL(
             @Field("user_id") String user_id
     );
 

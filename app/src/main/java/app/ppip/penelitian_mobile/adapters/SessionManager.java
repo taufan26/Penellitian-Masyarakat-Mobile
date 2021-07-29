@@ -185,21 +185,6 @@ public class SessionManager {
         return user;
     }
 
-
-    public void createUsulan(app.ppip.penelitian_mobile.model.usulanLogbook.Data data){
-        editor.putString(USULAN_PENELITIAN_JUDUL, data.getUsulanPenelitianJudul());
-        editor.commit();
-    }
-
-    public HashMap<String,String> getUsualanJudul(){
-        HashMap<String,String> user = new HashMap<>();
-        user.put(USULAN_PENELITIAN_JUDUL, sharedPreferences.getString(USULAN_PENELITIAN_JUDUL,null));
-        return user;
-    }
-
-
-
-
     public void logoutSession(){
         editor.clear();
         editor.commit();

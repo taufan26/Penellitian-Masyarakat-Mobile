@@ -25,6 +25,9 @@ public class LogbookPengabdianItem{
 	@SerializedName("logbook_presentase")
 	private String logbookPresentase;
 
+	@SerializedName("usulan_pengabdian_judul")
+	private String usulanPengabdianJudul;
+
 	public String getLogbookDate(){
 		return logbookDate;
 	}
@@ -51,5 +54,9 @@ public class LogbookPengabdianItem{
 
 	public String getLogbookPresentase(){
 		return logbookPresentase;
+	}
+
+	public String getUsulanPengabdianJudul(){
+		return usulanPengabdianJudul;
 	}
 }

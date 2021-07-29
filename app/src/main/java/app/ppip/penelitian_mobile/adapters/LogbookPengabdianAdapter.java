@@ -39,6 +39,7 @@ public class LogbookPengabdianAdapter extends RecyclerView.Adapter<LogbookPengab
     @Override
     public void onBindViewHolder(@NonNull LogbookPengabdianAdapter.RecyclerViewAdapter holder, int position) {
         LogbookPengabdianItem datalogbook = datas.get(position);
+        holder.tv_judul.setText(datalogbook.getUsulanPengabdianJudul());
         holder.tv_tahun.setText(datalogbook.getLogbookDate());
         holder.tv_presentase.setText(datalogbook.getLogbookPresentase());
         holder.tv_kegiatan.setText(datalogbook.getLogbookUraianKegiatan());
