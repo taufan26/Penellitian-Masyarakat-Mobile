@@ -17,6 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Penelitian_Mobile"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activities.LogbookPengabdianTambahActivity"></activity>
+        <activity android:name=".activities.LogbookPenelitanTambahActivity" />
         <activity android:name=".activities.UsulanDetailPengabdianActivity" />
         <activity android:name=".activities.UsulanDetailPenelitianActivity" />
         <activity android:name=".activities.SplashActivity">

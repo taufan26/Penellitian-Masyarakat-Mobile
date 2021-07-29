@@ -12,7 +12,8 @@ import app.ppip.penelitian_mobile.adapters.SessionManager;
 
 public class UsulanDetailPenelitianActivity extends AppCompatActivity {
 
-    TextView judul, pengusul, kegiatan, tahun, status, skema, bidang, mahasiswa, komentar, button;
+    private static final int INTENT_ADD = 100;
+    TextView judul, pengusul, kegiatan, tahun, status, skema, bidang, mahasiswa, komentar, button, btn_tambah;
     SessionManager sessionManger;
     String Id, Judul, Skema, Bidang, Kegiatan, Tahun, Kategori, Status, Mahasiswa, Submit, Komentar, Pengusul;
 
@@ -32,6 +33,7 @@ public class UsulanDetailPenelitianActivity extends AppCompatActivity {
         komentar = findViewById(R.id.detail_komentar_penelitan);
         mahasiswa = findViewById(R.id.detail_mahasiswa_penelitan);
         button = findViewById(R.id.detail_penelitan_btn);
+        btn_tambah = findViewById(R.id.detail_penelitan_btn_tambah);
 
         Intent intent = getIntent();
         Id = intent.getStringExtra("id");
@@ -101,6 +103,16 @@ public class UsulanDetailPenelitianActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), UsulanPenelitianActivity.class);
                 startActivity(i);
+            }
+        });
+
+        btn_tambah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), LogbookPenelitanTambahActivity.class);
+                i.putExtra("id", Id);
+                i.putExtra("judul", Judul);
+                startActivityForResult(i, INTENT_ADD);
             }
         });
     }

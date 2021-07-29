@@ -12,9 +12,10 @@ import app.ppip.penelitian_mobile.adapters.SessionManager;
 
 public class UsulanDetailPengabdianActivity extends AppCompatActivity {
 
-    TextView judul, pengusul, kegiatan, tahun, status, skema, bidang, mahasiswa, komentar, button;
+    TextView judul, pengusul, kegiatan, tahun, status, skema, bidang, mahasiswa, komentar, button, btn_tambah;
     SessionManager sessionManger;
     String Id, Judul, Skema, Bidang, Kegiatan, Tahun, Kategori, Status, Mahasiswa, Submit, Komentar, Pengusul;
+    private static final int INTENT_ADD_PENGABDIAN = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class UsulanDetailPengabdianActivity extends AppCompatActivity {
         komentar = findViewById(R.id.detail_komentar_pengabdian);
         mahasiswa = findViewById(R.id.detail_mahasiswa_pengabdian);
         button = findViewById(R.id.detail_pengabdian_btn);
+        btn_tambah = findViewById((R.id.detail_pengabdian_btn_tambah));
 
         Intent intent = getIntent();
         Id = intent.getStringExtra("id");
@@ -96,6 +98,16 @@ public class UsulanDetailPengabdianActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), UsulanPengabdianActivity.class);
                 startActivity(i);
+            }
+        });
+
+        btn_tambah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), LogbookPengabdianTambahActivity.class);
+                i.putExtra("id", Id);
+                i.putExtra("judul", Judul);
+                startActivityForResult(i, INTENT_ADD_PENGABDIAN);
             }
         });
     }
