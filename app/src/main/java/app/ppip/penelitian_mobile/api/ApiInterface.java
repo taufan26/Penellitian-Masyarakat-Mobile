@@ -88,6 +88,12 @@ public interface ApiInterface {
     );
 
     @FormUrlEncoded
+    @POST("deleteLogbookPenelitian.php")
+    Call<TambahLogbookPenelitian> DELETE_LOGBOOK_PENELITIAN_CALL(
+            @Field("logbook_id") String logbook_id
+    );
+
+    @FormUrlEncoded
     @POST("tambahLogbookPengabdian.php")
     Call<TambahLogbookPengabdian> TAMBAH_LOGBOOK_PENGABDIAN_CALL(
             @Field("usulan_id") String usulan_id,
@@ -106,5 +112,11 @@ public interface ApiInterface {
             @Field("kegiatan") String kegiatan,
             @Field("presentase") String presentase,
             @Field("update_at") String update_at
+    );
+
+    @FormUrlEncoded
+    @POST("deleteLogbookPengabdian.php")
+    Call<TambahLogbookPengabdian> DELETE_LOGBOOK_PENGABDIAN_CALL(
+            @Field("logbook_id") String logbook_id
     );
 }

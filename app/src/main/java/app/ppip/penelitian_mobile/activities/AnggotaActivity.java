@@ -61,8 +61,7 @@ public class AnggotaActivity extends AppCompatActivity {
         btnanggota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
-                startActivity(i);
+                finish();
             }
         });
 

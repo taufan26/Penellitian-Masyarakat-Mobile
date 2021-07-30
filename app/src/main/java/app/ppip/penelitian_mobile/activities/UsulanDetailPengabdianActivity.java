@@ -96,8 +96,7 @@ public class UsulanDetailPengabdianActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), UsulanPengabdianActivity.class);
-                startActivity(i);
+                finish();
             }
         });
 

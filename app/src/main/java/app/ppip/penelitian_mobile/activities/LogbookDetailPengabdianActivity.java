@@ -1,5 +1,6 @@
 package app.ppip.penelitian_mobile.activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -48,6 +49,8 @@ public class LogbookDetailPengabdianActivity extends AppCompatActivity {
         ed_kegitan = findViewById(R.id.logbook_edit_kegiatan_pengabdian);
         ed_presentase = findViewById(R.id.logbook_edit_presentase_pengabdian);
         im_save = findViewById(R.id.logbook_edit_save_pengabdian);
+        im_delete = findViewById(R.id.logbook_edit_delete_pengabdian);
+        im_back = findViewById(R.id.logbook_edit_back_pengabdian);
 
         Intent intent = getIntent();
         judul = intent.getStringExtra("judul");
@@ -59,6 +62,7 @@ public class LogbookDetailPengabdianActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("loading....");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
@@ -108,6 +112,29 @@ public class LogbookDetailPengabdianActivity extends AppCompatActivity {
                 updateLogbook(logbook_id, tanggal, kegiatan, presentase, update_at);
             }
         });
+
+        im_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alert.setTitle("Konfirmasi !");
+                alert.setMessage("Apakah Anda Yakin?");
+                alert.setNegativeButton("IYA", (dialog, which) -> {
+                    dialog.dismiss();
+                    deleteLogbook(logbook_id);
+                });
+                alert.setPositiveButton("Batal",
+                        (dialog, which) -> dialog.dismiss());
+
+                alert.show();
+            }
+        });
+
+        im_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void setDataFromIntentExtra() {
@@ -123,6 +150,35 @@ public class LogbookDetailPengabdianActivity extends AppCompatActivity {
         progressDialog.show();
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         Call<TambahLogbookPengabdian> call = apiInterface.EDIT_LOGBOOK_CALL_PENGABDIAN(logbook_id, tanggal, kegiatan, presentase, update_at);
+        call.enqueue(new Callback<TambahLogbookPengabdian>() {
+            @Override
+            public void onResponse(Call<TambahLogbookPengabdian> call, Response<TambahLogbookPengabdian> response) {
+                progressDialog.dismiss();
+
+                if (response.isSuccessful() && response.body() != null){
+                    Boolean status = response.body().getStatus();
+                    if (status){
+                        Toast.makeText(LogbookDetailPengabdianActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        finish();
+                    }else {
+                        Toast.makeText(LogbookDetailPengabdianActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TambahLogbookPengabdian> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(LogbookDetailPengabdianActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void deleteLogbook(String logbook_id) {
+
+        progressDialog.show();
+        apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        Call<TambahLogbookPengabdian> call = apiInterface.DELETE_LOGBOOK_PENGABDIAN_CALL(logbook_id);
         call.enqueue(new Callback<TambahLogbookPengabdian>() {
             @Override
             public void onResponse(Call<TambahLogbookPengabdian> call, Response<TambahLogbookPengabdian> response) {

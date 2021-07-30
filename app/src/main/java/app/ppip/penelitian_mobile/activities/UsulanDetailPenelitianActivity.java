@@ -101,8 +101,7 @@ public class UsulanDetailPenelitianActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), UsulanPenelitianActivity.class);
-                startActivity(i);
+               finish();
             }
         });
 
