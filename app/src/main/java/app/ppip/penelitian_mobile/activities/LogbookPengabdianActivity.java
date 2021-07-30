@@ -1,10 +1,12 @@
 package app.ppip.penelitian_mobile.activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,15 +23,14 @@ import app.ppip.penelitian_mobile.model.logbookPengabdian.LogbookPengabdianItem;
 
 public class LogbookPengabdianActivity extends AppCompatActivity implements LogbookPengabdianView {
 
+    private static final int INTENT_LOGBOOK_EDIT_PENGABDIAN = 100;
     RecyclerView recyclerView;
     SwipeRefreshLayout swipeRefresh;
     LogbookPengabdianPresenter presenter;
     LogbookPengabdianAdapter adapter;
     LogbookPengabdianAdapter.ItemClickListener itemClickListener;
     SessionManager sessionManager;
-    String user_id, Tahun, Mulai, Selesai, TahunAkhir;
-    TextView tahun, mulai, selesai, akhir;
-
+    String user_id;
     List<LogbookPengabdianItem> data;
 
     @Override
@@ -55,8 +56,29 @@ public class LogbookPengabdianActivity extends AppCompatActivity implements Logb
         );
 
         itemClickListener = (((view, position) -> {
+            String judul = data.get(position).getUsulanPengabdianJudul();
+            String logbook_id = data.get(position).getLogbookId();
+            String tanggal = data.get(position).getLogbookDate();
+            String kegiatan = data.get(position).getLogbookUraianKegiatan();
+            String presentase = data.get(position).getLogbookPresentase();
 
+            Intent intent = new Intent(this, LogbookDetailPengabdianActivity.class);
+            intent.putExtra("judul", judul);
+            intent.putExtra("logbook_id", logbook_id);
+            intent.putExtra("tanggal", tanggal);
+            intent.putExtra("kegiatan", kegiatan);
+            intent.putExtra("presentase", presentase);
+            startActivityForResult(intent, INTENT_LOGBOOK_EDIT_PENGABDIAN);
         }));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == INTENT_LOGBOOK_EDIT_PENGABDIAN && resultCode == RESULT_OK){
+            presenter.getDataLogbook(user_id);
+        }
     }
 
     @Override

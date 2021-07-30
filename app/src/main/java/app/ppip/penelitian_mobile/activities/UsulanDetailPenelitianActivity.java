@@ -116,4 +116,5 @@ public class UsulanDetailPenelitianActivity extends AppCompatActivity {
             }
         });
     }
+
 }

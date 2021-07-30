@@ -61,7 +61,7 @@
                             android:textSize="14dp"
                             android:fontFamily="@font/roboto_regular"
                             android:layout_height="wrap_content"
-                            android:text="Tahun"
+                            android:text="Tanggal"
                             android:textColor="#DF6A90B5"/>
 
                     </LinearLayout>

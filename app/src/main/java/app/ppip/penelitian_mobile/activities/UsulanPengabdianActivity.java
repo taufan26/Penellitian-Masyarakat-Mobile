@@ -1,5 +1,6 @@
 package app.ppip.penelitian_mobile.activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -97,6 +98,15 @@ public class UsulanPengabdianActivity extends AppCompatActivity implements Penga
         selesai.setText(Selesai);
         akhir.setText(TahunAkhir);
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == INTENT_DETAIL_PENGABDIAN && resultCode == RESULT_OK){
+            presenter.getData(user_id);
+        }
     }
 
     @Override

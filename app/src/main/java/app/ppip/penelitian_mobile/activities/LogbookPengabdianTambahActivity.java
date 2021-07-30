@@ -90,6 +90,7 @@ public class LogbookPengabdianTambahActivity extends AppCompatActivity {
                 String kegiatan = ed_kegiatan.getText().toString().trim();
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 String create_at = timestamp.toString().trim();
+                String update_at = timestamp.toString().trim();
                 double presentase_value;
                 String presentase= ed_presentase.getText().toString().trim();
                 if(!presentase.isEmpty())
@@ -101,17 +102,18 @@ public class LogbookPengabdianTambahActivity extends AppCompatActivity {
                         // this means it is not double
                         e1.printStackTrace();
                     }
-                tambahLogbook(usulan_id, tanggal, kegiatan, presentase, create_at);
+                tambahLogbook(usulan_id, tanggal, kegiatan, presentase, create_at, update_at);
             }
         });
     }
 
 
-    private void tambahLogbook(final String usulan_id, final String tanggal, final String kegiatan, final String presentase, final String create_at) {
+    private void tambahLogbook(final String usulan_id, final String tanggal,
+                               final String kegiatan, final String presentase, final String create_at, final String update_at) {
         progressDialog.show();
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<TambahLogbookPengabdian> call = apiInterface.TAMBAH_LOGBOOK_PENGABDIAN_CALL(usulan_id, tanggal, kegiatan, presentase, create_at);
+        Call<TambahLogbookPengabdian> call = apiInterface.TAMBAH_LOGBOOK_PENGABDIAN_CALL(usulan_id, tanggal, kegiatan, presentase, create_at, update_at);
 
         call.enqueue(new Callback<TambahLogbookPengabdian>() {
             @Override

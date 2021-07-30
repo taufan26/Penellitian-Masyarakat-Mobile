@@ -73,7 +73,18 @@ public interface ApiInterface {
             @Field("tanggal") String tanggal,
             @Field("kegiatan") String kegiatan,
             @Field("presentase") String presentase,
-            @Field("create_at") String create_at
+            @Field("create_at") String create_at,
+            @Field("update_at") String update_at
+    );
+
+    @FormUrlEncoded
+    @POST("editLogbookPenelitian.php")
+    Call<TambahLogbookPenelitian> EDIT_LOGBOOK_CALL(
+            @Field("logbook_id") String logbook_id,
+            @Field("tanggal") String tanggal,
+            @Field("kegiatan") String kegiatan,
+            @Field("presentase") String presentase,
+            @Field("update_at") String update_at
     );
 
     @FormUrlEncoded
@@ -83,6 +94,17 @@ public interface ApiInterface {
             @Field("tanggal") String tanggal,
             @Field("kegiatan") String kegiatan,
             @Field("presentase") String presentase,
-            @Field("create_at") String create_at
+            @Field("create_at") String create_at,
+            @Field("update_at") String update_at
+    );
+
+    @FormUrlEncoded
+    @POST("editLogbookPengabdian.php")
+    Call<TambahLogbookPengabdian> EDIT_LOGBOOK_CALL_PENGABDIAN(
+            @Field("logbook_id") String logbook_id,
+            @Field("tanggal") String tanggal,
+            @Field("kegiatan") String kegiatan,
+            @Field("presentase") String presentase,
+            @Field("update_at") String update_at
     );
 }
