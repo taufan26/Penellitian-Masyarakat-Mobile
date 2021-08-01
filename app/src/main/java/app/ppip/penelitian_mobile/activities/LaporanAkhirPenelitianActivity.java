@@ -1,0 +1,117 @@
+package app.ppip.penelitian_mobile.activities;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Toast;
+
+import java.util.List;
+
+import app.ppip.penelitian_mobile.R;
+import app.ppip.penelitian_mobile.adapters.LaporanAkhirPenelitianAdapter;
+import app.ppip.penelitian_mobile.adapters.LaporanKemajuanPenelitianAdapter;
+import app.ppip.penelitian_mobile.adapters.SessionManager;
+import app.ppip.penelitian_mobile.interfaces.LaporanAkhirPenelitianView;
+import app.ppip.penelitian_mobile.model.laporanAkhirPenelitian.LaporanAkhirPenelitianItem;
+import app.ppip.penelitian_mobile.model.laporanKemajuanPenelitian.LaporanKemeajuanPenelitianItem;
+
+public class LaporanAkhirPenelitianActivity extends AppCompatActivity implements LaporanAkhirPenelitianView {
+
+    private static final int INTENT_LAPORAN_AKHIR_DETAIL = 100;
+    RecyclerView recyclerView;
+    SwipeRefreshLayout swipeRefresh;
+    LaporanAkhirPenelitianPresenter presenter;
+    LaporanAkhirPenelitianAdapter adapter;
+    LaporanAkhirPenelitianAdapter.ItemClickListener itemClickListener;
+    SessionManager sessionManager;
+    String user_id;
+
+    List<LaporanAkhirPenelitianItem> data;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_laporan_akhir_penelitian);
+
+        sessionManager = new SessionManager(LaporanAkhirPenelitianActivity.this);
+        user_id = sessionManager.getUserDetail().get(SessionManager.USER_ID);
+
+        swipeRefresh = findViewById(R.id.swipe_laporan_akhir_penelitian);
+        recyclerView = findViewById(R.id.list_laporan_akhir_penelitian);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(llm);
+
+        presenter = new LaporanAkhirPenelitianPresenter(this);
+        presenter.getDataLaporanAkhir(user_id);
+
+
+        swipeRefresh.setOnRefreshListener(
+                () -> presenter.getDataLaporanAkhir(user_id)
+        );
+
+        itemClickListener = (((view, position) -> {
+            String usulan_penelitian_judul = data.get(position).getUsulanPenelitianJudul();
+            String laporan_akhir_id = data.get(position).getLaporanAkhirId();
+            String laporan_akhir_penelitian_id = data.get(position).getLaporanAkhirPenelitianId();
+            String laporan_akhir_date = data.get(position).getLaporanAkhirDate();
+            String laporan_akhir_original_name = data.get(position).getLaporanAkhirOriginalName();
+            String laporan_akhir_hash_name = data.get(position).getLaporanAkhirHashName();
+            String laporan_akhir_base_name = data.get(position).getLaporanAkhirBaseName();
+            String laporan_akhir_file_size = data.get(position).getLaporanAkhirFileSize();
+            String laporan_akhir_extension = data.get(position).getLaporanAkhirExtension();
+
+
+            Intent intent = new Intent(this, LaporanAkhirDetailPenelitianActivity.class);
+            intent.putExtra("usulan_penelitian_judul", usulan_penelitian_judul);
+            intent.putExtra("laporan_akhir_id", laporan_akhir_id);
+            intent.putExtra("laporan_akhir_penelitian_id", laporan_akhir_penelitian_id);
+            intent.putExtra("laporan_akhir_date", laporan_akhir_date);
+            intent.putExtra("laporan_akhir_original_name", laporan_akhir_original_name);
+            intent.putExtra("laporan_akhir_hash_name", laporan_akhir_hash_name);
+            intent.putExtra("laporan_akhir_base_name", laporan_akhir_base_name);
+            intent.putExtra("laporan_akhir_file_size", laporan_akhir_file_size);
+            intent.putExtra("laporan_akhir_extension", laporan_akhir_extension);
+            startActivityForResult(intent, INTENT_LAPORAN_AKHIR_DETAIL);
+        }));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == INTENT_LAPORAN_AKHIR_DETAIL && resultCode == RESULT_OK){
+            presenter.getDataLaporanAkhir(user_id);
+        }
+    }
+
+    @Override
+    public void showLoading() {
+        swipeRefresh.setRefreshing(true);
+    }
+
+    @Override
+    public void hideLoading() {
+        swipeRefresh.setRefreshing(false);
+    }
+
+    @Override
+    public void onGetResult(List<LaporanAkhirPenelitianItem> datas) {
+        adapter = new LaporanAkhirPenelitianAdapter(this, datas, itemClickListener);
+        adapter.notifyDataSetChanged();
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
+        data = datas;
+    }
+
+    @Override
+    public void onErrorLoading(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+}

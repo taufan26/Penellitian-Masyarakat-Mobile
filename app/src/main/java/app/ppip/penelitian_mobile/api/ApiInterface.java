@@ -7,6 +7,8 @@ import app.ppip.penelitian_mobile.model.LaporanKemajuanPengabdian.LaporanKemajua
 import app.ppip.penelitian_mobile.model.biodata.Biodata;
 import app.ppip.penelitian_mobile.model.feature.Feature;
 import app.ppip.penelitian_mobile.model.keanggotaan.Keanggotaan;
+import app.ppip.penelitian_mobile.model.laporanAkhirPenelitian.LaporanAkhirPenelitianItem;
+import app.ppip.penelitian_mobile.model.laporanAkhirPengabdian.LaporanAkhirPengabdianItem;
 import app.ppip.penelitian_mobile.model.laporanKemajuanPenelitian.LaporanKemeajuanPenelitianItem;
 import app.ppip.penelitian_mobile.model.logbookPenelitian.LogbookPenelitianItem;
 import app.ppip.penelitian_mobile.model.logbookPenelitian.TambahLogbookPenelitian;
@@ -131,6 +133,18 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("laporanKemajuanPengabdian.php")
     Call<List<LaporanKemajuanPengabdianItem>> LAPORAN_KEMAJUAN_PENGABDIAN_CALL(
+            @Field("user_id") String user_id
+    );
+
+    @FormUrlEncoded
+    @POST("laporanAkhirPenelitian.php")
+    Call<List<LaporanAkhirPenelitianItem>> LAPORAN_AKHIR_PENELITIAN_CALL(
+            @Field("user_id") String user_id
+    );
+
+    @FormUrlEncoded
+    @POST("laporanAkhirPengabdian.php")
+    Call<List<LaporanAkhirPengabdianItem>> LAPORAN_AKHIR_PENGABDIAN_CALL(
             @Field("user_id") String user_id
     );
 }

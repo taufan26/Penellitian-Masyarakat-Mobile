@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="16dp"
+    android:id="@+id/card_laporan_akhir"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/laporan_akhir_judul"
+                    android:textColor="#131313"
+                    android:layout_width="wrap_content"
+                    android:textSize="24dp"
+                    android:layout_height="wrap_content"
+                    android:text="Judul Usulan"
+                    android:fontFamily="@font/roboto_bold"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/laporan_akhir_tanggal"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:textSize="20dp"
+                            android:fontFamily="@font/roboto_bold"
+                            android:layout_height="wrap_content"
+                            android:text="2021"
+                            android:textColor="#6A90B5"/>
+
+                        <TextView
+                            android:id="@+id/logbook_des_tahun"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:textSize="14dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:layout_height="wrap_content"
+                            android:text="Tanggal"
+                            android:textColor="#DF6A90B5"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/akhir_image"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/laporan" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/laporan_akhir_nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Laporan"
+                android:textSize="20dp"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="#6A90B5"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

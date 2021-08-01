@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import app.ppip.penelitian_mobile.R;
+import app.ppip.penelitian_mobile.activities.LaporanAkhirPenelitianActivity;
 import app.ppip.penelitian_mobile.activities.LaporanKemajuanPenelitianActivity;
 import app.ppip.penelitian_mobile.activities.LaporanKemajuanPenelitianDetailActivity;
 import app.ppip.penelitian_mobile.adapters.SessionManager;
@@ -32,6 +33,7 @@ public class PenelitianFragment extends Fragment {
         CardView cv_usulan = rootView.findViewById(R.id.menu_usulan_penelitian);
         CardView cv_logbook = rootView.findViewById(R.id.menu_logbook_penelitian);
         CardView cv_laporan_kemajuan = rootView.findViewById(R.id.menu_lapkem_penelitian);
+        CardView cv_laporan_akhir = rootView.findViewById(R.id.menu_lapak_penelitian);
 
 
         cv_usulan.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +56,14 @@ public class PenelitianFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity().getApplicationContext(), LaporanKemajuanPenelitianActivity.class);
+                startActivity(i);
+            }
+        });
+
+        cv_laporan_akhir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity().getApplicationContext(), LaporanAkhirPenelitianActivity.class);
                 startActivity(i);
             }
         });
