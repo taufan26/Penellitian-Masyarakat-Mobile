@@ -17,7 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Penelitian_Mobile"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.LaporanKemajuanPenelitianDetailActivity"></activity>
+        <activity android:name=".activities.LaporanKemajuanPengabdianDetailActivity"></activity>
+        <activity android:name=".activities.LaporanKemajuanPengabdianActivity" />
+        <activity android:name=".activities.LaporanKemajuanPenelitianDetailActivity" />
         <activity android:name=".activities.LaporanKemajuanPenelitianActivity" />
         <activity android:name=".activities.LogbookDetailPengabdianActivity" />
         <activity android:name=".activities.LogbookDetailPenelitianActivity" />

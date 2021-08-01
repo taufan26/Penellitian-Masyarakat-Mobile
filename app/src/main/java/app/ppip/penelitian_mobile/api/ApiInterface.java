@@ -3,6 +3,7 @@ package app.ppip.penelitian_mobile.api;
 import java.util.Date;
 import java.util.List;
 
+import app.ppip.penelitian_mobile.model.LaporanKemajuanPengabdian.LaporanKemajuanPengabdianItem;
 import app.ppip.penelitian_mobile.model.biodata.Biodata;
 import app.ppip.penelitian_mobile.model.feature.Feature;
 import app.ppip.penelitian_mobile.model.keanggotaan.Keanggotaan;
@@ -124,6 +125,12 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("laporanKemajuanPenelitian.php")
     Call<List<LaporanKemeajuanPenelitianItem>> LAPORAN_KEMAJUAN_PENELITIAN_CALL(
+            @Field("user_id") String user_id
+    );
+
+    @FormUrlEncoded
+    @POST("laporanKemajuanPengabdian.php")
+    Call<List<LaporanKemajuanPengabdianItem>> LAPORAN_KEMAJUAN_PENGABDIAN_CALL(
             @Field("user_id") String user_id
     );
 }
