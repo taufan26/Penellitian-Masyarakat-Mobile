@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.LogbookPenelitianActivity"
+    tools:context=".activities.LaporanKemajuanPenelitianActivity"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -17,7 +17,7 @@
             android:id="@+id/txtdasboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logbook"
+            android:text="Laporan Kemajuan"
             android:textColor="#FFFFFF"
             android:textSize="22sp" />
 
@@ -39,18 +39,16 @@
 
     </RelativeLayout>
 
-
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_logbook_penelitian"
+        android:id="@+id/swipe_laporan_kemajuan_penelitian"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_logbook_penelitian"
+            android:id="@+id/list_laporan_kemajuan_penelitian"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
 
 </LinearLayout>

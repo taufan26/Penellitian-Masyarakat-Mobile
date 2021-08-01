@@ -6,6 +6,7 @@ import java.util.List;
 import app.ppip.penelitian_mobile.model.biodata.Biodata;
 import app.ppip.penelitian_mobile.model.feature.Feature;
 import app.ppip.penelitian_mobile.model.keanggotaan.Keanggotaan;
+import app.ppip.penelitian_mobile.model.laporanKemajuanPenelitian.LaporanKemeajuanPenelitianItem;
 import app.ppip.penelitian_mobile.model.logbookPenelitian.LogbookPenelitianItem;
 import app.ppip.penelitian_mobile.model.logbookPenelitian.TambahLogbookPenelitian;
 import app.ppip.penelitian_mobile.model.logbookPengabdian.LogbookPengabdianItem;
@@ -118,5 +119,11 @@ public interface ApiInterface {
     @POST("deleteLogbookPengabdian.php")
     Call<TambahLogbookPengabdian> DELETE_LOGBOOK_PENGABDIAN_CALL(
             @Field("logbook_id") String logbook_id
+    );
+
+    @FormUrlEncoded
+    @POST("laporanKemajuanPenelitian.php")
+    Call<List<LaporanKemeajuanPenelitianItem>> LAPORAN_KEMAJUAN_PENELITIAN_CALL(
+            @Field("user_id") String user_id
     );
 }
