@@ -82,7 +82,6 @@ public class LaporanKemajuanPenelitianActivity extends AppCompatActivity impleme
             intent.putExtra("usulan_luaran_penelitian_tipe", usulan_luaran_penelitian_tipe);
             intent.putExtra("usulan_luaran_penelitian_tahun", usulan_luaran_penelitian_tahun);
             intent.putExtra("usulan_luaran_penelitian_jenis", usulan_luaran_penelitian_jenis);
-            intent.putExtra("usulan_luaran_penelitian_jenis", usulan_luaran_penelitian_jenis);
             intent.putExtra("usulan_luaran_penelitian_status", usulan_luaran_penelitian_status);
             intent.putExtra("usulan_luaran_penelitian_rencana", usulan_luaran_penelitian_rencana);
             startActivityForResult(intent, INTENT_LAPORAN_KEMAJUAN_DETAIL);
