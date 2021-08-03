@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -41,7 +43,7 @@ public class HomeFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        CardView cv_logout = rootView.findViewById(R.id.menu_logout);
+        ImageView cv_logout = rootView.findViewById(R.id.logout);
         CardView cv_profile = rootView.findViewById(R.id.menu_profile);
         user_id  = sessionManager.getUserDetail().get(SessionManager.USER_ID);
         getfeature();

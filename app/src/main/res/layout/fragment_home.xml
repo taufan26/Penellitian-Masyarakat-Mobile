@@ -37,10 +37,47 @@
                 android:layout_height="wrap_content"/>
 
             <ImageView
+                android:id="@+id/logo"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/logo_polindra"
                 android:layout_width="62dp"
                 android:layout_height="62dp"/>
+
+            <ImageView
+                android:id="@+id/notifikasi"
+                android:src="@drawable/ic_baseline_notifications_24"
+                android:layout_toLeftOf="@+id/logo"
+                android:layout_width="52dp"
+                android:layout_height="52dp" />
+
+            <ImageView
+                android:id="@+id/logout"
+                android:layout_toLeftOf="@+id/notifikasi"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:src="@drawable/cancel"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/notif_card"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="-31dp"
+                android:layout_toEndOf="@+id/notifikasi"
+                app:cardBackgroundColor="#ff0000"
+                app:cardCornerRadius="50dp">
+
+                <TextView
+                    android:id="@+id/nomer_notif"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:text="1"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+
+            </androidx.cardview.widget.CardView>
+
 
         </RelativeLayout>
 
@@ -133,55 +170,7 @@
 
             </androidx.cardview.widget.CardView>
 
-
-
         </GridLayout>
-
-
-        <GridLayout
-
-            android:columnOrderPreserved="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/menu_logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            app:cardElevation="6dp"
-            app:cardCornerRadius="12dp"
-            android:layout_margin="12dp">
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:src="@drawable/cancel"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-
-                <TextView
-                    android:layout_marginTop="12dp"
-                    android:textColor="#6f6f6f"
-                    android:textSize="18sp"
-                    android:text="Logout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        </GridLayout>
-
-
 
     </LinearLayout>
 
