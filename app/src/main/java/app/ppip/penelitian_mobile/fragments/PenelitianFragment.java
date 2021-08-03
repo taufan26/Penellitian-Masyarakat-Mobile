@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +19,13 @@ import app.ppip.penelitian_mobile.activities.LaporanKemajuanPenelitianDetailActi
 import app.ppip.penelitian_mobile.adapters.SessionManager;
 import app.ppip.penelitian_mobile.activities.LogbookPenelitianActivity;
 import app.ppip.penelitian_mobile.activities.UsulanPenelitianActivity;
+import app.ppip.penelitian_mobile.api.ApiClient;
+import app.ppip.penelitian_mobile.api.ApiInterface;
+import app.ppip.penelitian_mobile.model.feature.Feature;
+import app.ppip.penelitian_mobile.model.feature.FeatureItem;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PenelitianFragment extends Fragment {
 
@@ -40,6 +48,7 @@ public class PenelitianFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity().getApplicationContext(), UsulanPenelitianActivity.class);
+                getfeature();
                 startActivity(i);
             }
         });
@@ -69,5 +78,26 @@ public class PenelitianFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+    public void getfeature() {
+
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        Call<Feature> featurecall = apiInterface.GetFeture();
+        featurecall.enqueue(new Callback<Feature>() {
+            @Override
+            public void onResponse(@NonNull Call<Feature> call, @NonNull Response<Feature> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    sessionManger = new SessionManager(PenelitianFragment.this.getActivity());
+                    FeatureItem data = response.body().getData();
+                    sessionManger.createFeatureSession(data);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Feature> call, Throwable t) {
+                Toast.makeText(PenelitianFragment.this.getActivity(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

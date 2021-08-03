@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Penelitian_Mobile</string>
+    <string name="simtabmas_polindra">SIMTABMAS POLINDRA</string>
+    <string name="indo_app">SIMTABMAS Adalah Aplikasi untuk penelitian dan pegabdian masyarakat internal di Politeknik Negeri Indramayu
+    </string>
+    <string name="jalan">Alamat: jl. lohbener lama No.08, Legok, Kec. Lohbener, Kabupaten Indramayu, Jawa Barat 45252</string>
 </resources>

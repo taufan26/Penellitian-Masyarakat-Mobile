@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Penelitian_Mobile"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.LaporanAkhirDetailPengabdianActivity"></activity>
+        <activity android:name=".activities.InfoAplikasiActivity"></activity>
+        <activity android:name=".activities.LaporanAkhirDetailPengabdianActivity" />
         <activity android:name=".activities.LaporanAkhirDetailPenelitianActivity" />
         <activity android:name=".activities.LaporanAkhirPengabdianActivity" />
         <activity android:name=".activities.LaporanAkhirPenelitianActivity" />

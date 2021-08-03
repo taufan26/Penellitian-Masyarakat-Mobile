@@ -39,15 +39,6 @@ public class SessionManager {
     public static final String BOIDATA_PERSONAL_WEB = "biodata_personal_web";
     public static final String BOIDATA_IMAGE = "biodata_image";
 
-    //Anggota
-    public static final String ANGGOTA_ID = "anggota_penelitian_id ";
-    public static final String ANGGOTA_USER_ID = "anggota_penelitian_user_id";
-    public static final String ANGGOTA_ID_ID = "anggota_penelitian_penelitian_id";
-    public static final String ANGGOTA_ROLE = "anggota_penelitian_role";
-    public static final String ANGGOTA_TUGAS = "anggota_penelitian_tugas";
-    public static final String ANGGOTA_CREATE = "created_at";
-    public static final String ANGGOTA_UPDATE = "updated_at";
-
     //feature
     public static final String UNLOCK_FEATURE_ID = "unlock_feature_id ";
     public static final String UNLOCK_FEATURE_NAME = "unlock_feature_name";

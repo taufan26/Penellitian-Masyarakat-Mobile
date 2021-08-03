@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import app.ppip.penelitian_mobile.R;
+import app.ppip.penelitian_mobile.activities.InfoAplikasiActivity;
 import app.ppip.penelitian_mobile.activities.UsulanPenelitianActivity;
 import app.ppip.penelitian_mobile.adapters.SessionManager;
 import app.ppip.penelitian_mobile.activities.LoginActivity;
@@ -45,8 +46,10 @@ public class HomeFragment extends Fragment {
 
         ImageView cv_logout = rootView.findViewById(R.id.logout);
         CardView cv_profile = rootView.findViewById(R.id.menu_profile);
+        CardView cv_info = rootView.findViewById(R.id.menu_info);
+
         user_id  = sessionManager.getUserDetail().get(SessionManager.USER_ID);
-        getfeature();
+        //getfeature();
 
         cv_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +63,14 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity().getApplicationContext(), ProfileActivity.class);
+                startActivity(i);
+            }
+        });
+
+        cv_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity().getApplicationContext(), InfoAplikasiActivity.class);
                 startActivity(i);
             }
         });
