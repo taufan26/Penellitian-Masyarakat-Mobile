@@ -51,25 +51,21 @@ public class ProfileActivity extends AppCompatActivity {
         email = sessionManger.getUserDetail().get(SessionManager.USER_EMAIL);
         nama = sessionManger.getUserDetail().get(SessionManager.USER_NAME);
         foto = sessionManger.getUserDetail().get(SessionManager.USER_IMAGE);
-        hp = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_HP_NUMBER);
-        Alamat = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_ADDRESS);
-        Sex = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_SEX);
-        TL = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_BIRTHPLACE);
-        TTL = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_BIRTHDATE);
-        Institusi = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_COLLEGE);
-        ProgramStudi = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_STUDY_PROGRAM);
-        Jabatan = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_POSITION);
-        KTP = sessionManger.getBiodataDetail().get(SessionManager.BOIDATA_KTP_NUMBER);
+        hp = sessionManger.getUserDetail().get(SessionManager.BOIDATA_HP_NUMBER);
+        Alamat = sessionManger.getUserDetail().get(SessionManager.BOIDATA_ADDRESS);
+        Sex = sessionManger.getUserDetail().get(SessionManager.BOIDATA_SEX);
+        TL = sessionManger.getUserDetail().get(SessionManager.BOIDATA_BIRTHPLACE);
+        TTL = sessionManger.getUserDetail().get(SessionManager.BOIDATA_BIRTHDATE);
+        Institusi = sessionManger.getUserDetail().get(SessionManager.BOIDATA_COLLEGE);
+        ProgramStudi = sessionManger.getUserDetail().get(SessionManager.BOIDATA_STUDY_PROGRAM);
+        Jabatan = sessionManger.getUserDetail().get(SessionManager.BOIDATA_POSITION);
+        KTP = sessionManger.getUserDetail().get(SessionManager.BOIDATA_KTP_NUMBER);
 
         Nama.setText(nama);
         Email.setText(email);
         Picasso.get().load(Urls.image_url+foto).transform(new CircleTransform()).into(showFoto);
         bio_hp.setText(hp);
-        if (Sex.equals("1")){
-            jk.setText("Laki-Laki");
-        }else {
-            jk.setText("Perempuan");
-        }
+        jk.setText(Sex);
         alamat.setText(Alamat);
         tempat.setText(TL);
         tanggal.setText(TTL);

@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 public class DataUsulanPengabdian {
 
 	@Expose
-	@SerializedName("usulan_pengabdian_mahasiswa_terlibat ")
+	@SerializedName("usulan_pengabdian_mahasiswa_terlibat")
 	private String usulanPengabdianMahasiswaTerlibat;
 
 	@Expose
@@ -18,11 +18,11 @@ public class DataUsulanPengabdian {
 	private String createdAt;
 
 	@Expose
-	@SerializedName("usulan_pengabdian_bidang_id  ")
+	@SerializedName("usulan_pengabdian_bidang_id")
 	private String usulanPengabdianBidangId;
 
 	@Expose
-	@SerializedName("usulan_pengabdian_tahun ")
+	@SerializedName("usulan_pengabdian_tahun")
 	private String usulanPengabdianTahun;
 
 	@Expose
@@ -30,15 +30,15 @@ public class DataUsulanPengabdian {
 	private String usulanPengabdianJudul;
 
 	@Expose
-	@SerializedName("usulan_pengabdian_skema_id ")
+	@SerializedName("usulan_pengabdian_skema_id")
 	private String usulanPengabdianSkemaId;
 
 	@Expose
-	@SerializedName("usulan_pengabdian_status ")
+	@SerializedName("usulan_pengabdian_status")
 	private String usulanPengabdianStatus;
 
 	@Expose
-	@SerializedName("usulan_pengabdian_lama_kegiatan ")
+	@SerializedName("usulan_pengabdian_lama_kegiatan")
 	private String usulanPengabdianLamaKegiatan;
 
 	@Expose
@@ -50,15 +50,11 @@ public class DataUsulanPengabdian {
 	private String usulanPengabdianReviewerId;
 
 	@Expose
-	@SerializedName("usulan_pengabdian_komentar ")
-	private String usulanPengabdianKomentar;
-
-	@Expose
-	@SerializedName("usulan_pengabdian_submit ")
+	@SerializedName("usulan_pengabdian_submit")
 	private String usulanPengabdianSubmit;
 
 	@Expose
-	@SerializedName("usulan_pengabdian_id ")
+	@SerializedName("usulan_pengabdian_id")
 	private String usulanPengabdianId;
 
 	public String getUsulanPengabdianMahasiswaTerlibat(){
@@ -103,10 +99,6 @@ public class DataUsulanPengabdian {
 
 	public String getUsulanPengabdianReviewerId(){
 		return usulanPengabdianReviewerId;
-	}
-
-	public String getUsulanPengabdianKomentar(){
-		return usulanPengabdianKomentar;
 	}
 
 	public String getUsulanPengabdianSubmit(){

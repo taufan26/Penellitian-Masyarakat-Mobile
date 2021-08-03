@@ -29,7 +29,6 @@ public class UsulanDetailPengabdianActivity extends AppCompatActivity {
         status = findViewById(R.id.detail_status_pengabdian);
         skema = findViewById(R.id.detail_Skema_pengabdian);
         bidang = findViewById(R.id.detail_bidang_pengabdian);
-        komentar = findViewById(R.id.detail_komentar_pengabdian);
         mahasiswa = findViewById(R.id.detail_mahasiswa_pengabdian);
         button = findViewById(R.id.detail_pengabdian_btn);
         btn_tambah = findViewById((R.id.detail_pengabdian_btn_tambah));
@@ -45,7 +44,6 @@ public class UsulanDetailPengabdianActivity extends AppCompatActivity {
         Mahasiswa = intent.getStringExtra("mahasiswa");
         Tahun = intent.getStringExtra("tahun");
         Submit = intent.getStringExtra("submit");
-        Komentar = intent.getStringExtra("komentar");
 
         judul.setText(Judul);
         kegiatan.setText(Kegiatan);
@@ -82,11 +80,6 @@ public class UsulanDetailPengabdianActivity extends AppCompatActivity {
             bidang.setText("Porro");
         }
 
-        if (Komentar != null) {
-            komentar.setText(Komentar);
-        }else {
-            komentar.setText("-");
-        }
 
         sessionManger = new SessionManager(UsulanDetailPengabdianActivity.this);
         Pengusul = sessionManger.getUserDetail().get(SessionManager.USER_NAME);

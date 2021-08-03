@@ -7,7 +7,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-    public static final String BASE_URL = "http://192.168.1.3/API_penelitian/";
+    public static final String BASE_URL = "http://apip3m.000webhostapp.com/API_penelitian/";
 
     private static Retrofit retrofit;
 

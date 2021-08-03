@@ -40,8 +40,6 @@
         </activity>
         <activity android:name=".activities.LogbookPengabdianActivity" />
         <activity android:name=".activities.UsulanPengabdianActivity" />
-        <activity android:name=".activities.AnggotaActivity" />
-        <activity android:name=".activities.BiodataActivity" />
         <activity android:name=".activities.LogbookPenelitianActivity" />
         <activity android:name=".activities.UsulanPenelitianActivity" />
         <activity android:name=".activities.ProfileActivity" />

@@ -6,11 +6,11 @@ import com.google.gson.annotations.SerializedName;
 public class UsulanPenelitianItem{
 
 	@Expose
-	@SerializedName("usulan_penelitian_id ")
+	@SerializedName("usulan_penelitian_id")
 	private String usulanPenelitianId;
 
 	@Expose
-	@SerializedName("usulan_penelitian_skema_id ")
+	@SerializedName("usulan_penelitian_skema_id")
 	private String usulanPenelitianSkemaId;
 
 	@Expose
@@ -22,11 +22,11 @@ public class UsulanPenelitianItem{
 	private String createdAt;
 
 	@Expose
-	@SerializedName("usulan_penelitian_status ")
+	@SerializedName("usulan_penelitian_status")
 	private String usulanPenelitianStatus;
 
 	@Expose
-	@SerializedName("usulan_penelitian_submit ")
+	@SerializedName("usulan_penelitian_submit")
 	private String usulanPenelitianSubmit;
 
 	@Expose
@@ -34,19 +34,19 @@ public class UsulanPenelitianItem{
 	private String usulanPenelitianJudul;
 
 	@Expose
-	@SerializedName("usulan_penelitian_mahasiswa_terlibat ")
+	@SerializedName("usulan_penelitian_mahasiswa_terlibat")
 	private String usulanPenelitianMahasiswaTerlibat;
 
 	@Expose
-	@SerializedName("usulan_penelitian_bidang_id  ")
+	@SerializedName("usulan_penelitian_bidang_id")
 	private String usulanPenelitianBidangId;
 
 	@Expose
-	@SerializedName("usulan_penelitian_tahun ")
+	@SerializedName("usulan_penelitian_tahun")
 	private String usulanPenelitianTahun;
 
 	@Expose
-	@SerializedName("usulan_penelitian_lama_kegiatan ")
+	@SerializedName("usulan_penelitian_lama_kegiatan")
 	private String usulanPenelitianLamaKegiatan;
 
 	@Expose
@@ -54,7 +54,7 @@ public class UsulanPenelitianItem{
 	private String updatedAt;
 
 	@Expose
-	@SerializedName("usulan_penelitian_komentar ")
+	@SerializedName("usulan_penelitian_komentar")
 	private String usulanPenelitianKomentar;
 
 	@Expose

@@ -7,7 +7,7 @@ public class FeatureItem{
 	@SerializedName("unlock_feature_end_year")
 	private String unlockFeatureEndYear;
 
-	@SerializedName("unlock_feature_end_time  ")
+	@SerializedName("unlock_feature_end_time")
 	private String unlockFeatureEndTime;
 
 	@SerializedName("updated_at")
@@ -16,7 +16,7 @@ public class FeatureItem{
 	@SerializedName("unlock_feature_start_year")
 	private String unlockFeatureStartYear;
 
-	@SerializedName("unlock_feature_id ")
+	@SerializedName("unlock_feature_id")
 	private String unlockFeatureId;
 
 	@SerializedName("created_at")
@@ -25,7 +25,7 @@ public class FeatureItem{
 	@SerializedName("unlock_feature_name")
 	private String unlockFeatureName;
 
-	@SerializedName("unlock_feature_start_time ")
+	@SerializedName("unlock_feature_start_time")
 	private String unlockFeatureStartTime;
 
 	public String getUnlockFeatureEndYear(){

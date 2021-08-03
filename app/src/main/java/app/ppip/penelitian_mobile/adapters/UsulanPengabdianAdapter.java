@@ -56,7 +56,8 @@ public class UsulanPengabdianAdapter extends RecyclerView.Adapter<UsulanPengabdi
             holder.tv_status.setText("Pending");
         }else if (Status.equals("revisi")) {
             holder.tv_status.setText("Revisi");
-        }    }
+        }
+    }
 
     @Override
     public int getItemCount() {

@@ -12,7 +12,6 @@ import app.ppip.penelitian_mobile.adapters.SessionManager;
 public class LaporanKemajuanPengabdianDetailActivity extends AppCompatActivity {
 
     TextView tv_judul, tv_tanggal, tv_nama, tv_luaranTipe, tv_luaranTahun, tv_luaranJenis, tv_luaranStatus, tv_luaranRencana, button;
-    SessionManager sessionManger;
     String Id, Judul, Tanggal, Nama, LuaranTipe, LuaranTahun, LuaranJenis, LuaranStatus, LuaranRencana;
 
     @Override
@@ -32,7 +31,6 @@ public class LaporanKemajuanPengabdianDetailActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        Id = intent.getStringExtra("laporan_kemajuan_id");
         Judul = intent.getStringExtra("usulan_pengabdian_judul");
         Tanggal = intent.getStringExtra("laporan_kemajuan_date");
         Nama = intent.getStringExtra("laporan_kemajuan_base_name");

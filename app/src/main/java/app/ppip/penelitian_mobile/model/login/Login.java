@@ -13,6 +13,7 @@ public class Login{
 	@SerializedName("status")
 	private boolean status;
 
+
 	public void setData(Data data){
 		this.data = data;
 	}

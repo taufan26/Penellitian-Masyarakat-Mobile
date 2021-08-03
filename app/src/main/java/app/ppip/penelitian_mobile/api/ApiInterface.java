@@ -4,9 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import app.ppip.penelitian_mobile.model.LaporanKemajuanPengabdian.LaporanKemajuanPengabdianItem;
-import app.ppip.penelitian_mobile.model.biodata.Biodata;
 import app.ppip.penelitian_mobile.model.feature.Feature;
-import app.ppip.penelitian_mobile.model.keanggotaan.Keanggotaan;
 import app.ppip.penelitian_mobile.model.laporanAkhirPenelitian.LaporanAkhirPenelitianItem;
 import app.ppip.penelitian_mobile.model.laporanAkhirPengabdian.LaporanAkhirPengabdianItem;
 import app.ppip.penelitian_mobile.model.laporanKemajuanPenelitian.LaporanKemeajuanPenelitianItem;
@@ -29,18 +27,6 @@ public interface ApiInterface {
     Call<Login> loginResponse(
             @Field("email") String email,
             @Field("password") String password
-    );
-
-    @FormUrlEncoded
-    @POST("biodata.php")
-    Call<Biodata> biodataResponse(
-            @Field("user_id") String user_id
-    );
-
-    @FormUrlEncoded
-    @POST("keanggotaan.php")
-    Call<Keanggotaan> AnggotaanResponse(
-            @Field("user_id") String user_id
     );
 
     @FormUrlEncoded

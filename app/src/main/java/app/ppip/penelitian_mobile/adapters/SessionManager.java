@@ -6,11 +6,8 @@ import android.preference.PreferenceManager;
 
 import java.util.HashMap;
 
-import app.ppip.penelitian_mobile.model.biodata.DataBio;
 import app.ppip.penelitian_mobile.model.feature.FeatureItem;
-import app.ppip.penelitian_mobile.model.keanggotaan.DataAnggota;
 import app.ppip.penelitian_mobile.model.login.Data;
-import app.ppip.penelitian_mobile.model.usulanPengabdian.DataUsulanPengabdian;
 
 public class SessionManager {
     private Context _context;
@@ -79,23 +76,6 @@ public class SessionManager {
         editor.putString(USER_ROLE, user.getUserRole());
         editor.putString(USER_NIDN, user.getUserNidn());
         editor.putString(USER_IMAGE, user.getUserImage());
-        editor.commit();
-    }
-
-    public HashMap<String,String> getUserDetail(){
-        HashMap<String,String> user = new HashMap<>();
-        user.put(USER_ID, sharedPreferences.getString(USER_ID,null));
-        user.put(USER_EMAIL, sharedPreferences.getString(USER_EMAIL,null));
-        user.put(USER_NAME, sharedPreferences.getString(USER_NAME,null));
-        user.put(USER_ROLE, sharedPreferences.getString(USER_ROLE,null));
-        user.put(USER_NIDN, sharedPreferences.getString(USER_NIDN,null));
-        user.put(USER_IMAGE, sharedPreferences.getString(USER_IMAGE,null));
-        return user;
-    }
-
-    //BIODATA SESSISON
-
-    public void createBiodataList(DataBio user){
         editor.putString(ID_BIODATA, user.getIdBiodata());
         editor.putString(USERS, user.getUsers());
         editor.putString(BOIDATA_USER_ID, user.getBiodataUserId());
@@ -110,12 +90,17 @@ public class SessionManager {
         editor.putString(BOIDATA_TELEPHONE_NUMBER, user.getBiodataTelephoneNumber());
         editor.putString(BOIDATA_ADDRESS, user.getBiodataAddress());
         editor.putString(BOIDATA_PERSONAL_WEB, user.getBiodataPersonalWeb());
-        editor.putString(BOIDATA_IMAGE, user.getBiodataImage());
         editor.commit();
     }
 
-    public HashMap<String,String> getBiodataDetail(){
+    public HashMap<String,String> getUserDetail(){
         HashMap<String,String> user = new HashMap<>();
+        user.put(USER_ID, sharedPreferences.getString(USER_ID,null));
+        user.put(USER_EMAIL, sharedPreferences.getString(USER_EMAIL,null));
+        user.put(USER_NAME, sharedPreferences.getString(USER_NAME,null));
+        user.put(USER_ROLE, sharedPreferences.getString(USER_ROLE,null));
+        user.put(USER_NIDN, sharedPreferences.getString(USER_NIDN,null));
+        user.put(USER_IMAGE, sharedPreferences.getString(USER_IMAGE,null));
         user.put(ID_BIODATA, sharedPreferences.getString(ID_BIODATA,null));
         user.put(USERS, sharedPreferences.getString(USERS,null));
         user.put(BOIDATA_USER_ID, sharedPreferences.getString(BOIDATA_USER_ID,null));
@@ -131,30 +116,6 @@ public class SessionManager {
         user.put(BOIDATA_ADDRESS, sharedPreferences.getString(BOIDATA_ADDRESS,null));
         user.put(BOIDATA_PERSONAL_WEB, sharedPreferences.getString(BOIDATA_PERSONAL_WEB,null));
         user.put(BOIDATA_IMAGE, sharedPreferences.getString(BOIDATA_IMAGE,null));
-        return user;
-    }
-
-    //ANGGOTA SESSISON
-
-    public void createAnggotaSession(DataAnggota user){
-        editor.putString(ANGGOTA_ID, user.getAnggotaPenelitianId());
-        editor.putString(ANGGOTA_USER_ID, user.getAnggotaPenelitianUserId());
-        editor.putString(ANGGOTA_ID_ID, user.getAnggotaPenelitianPenelitianId());
-        editor.putString(ANGGOTA_ROLE, user.getAnggotaPenelitianRole());
-        editor.putString(ANGGOTA_TUGAS, user.getAnggotaPenelitianTugas());
-        editor.putString(ANGGOTA_CREATE, user.getCreatedAt());
-        editor.putString(ANGGOTA_UPDATE, user.getUpdatedAt());
-        editor.commit();
-    }
-
-    public HashMap<String,String> getAnggotaDetail(){
-        HashMap<String,String> user = new HashMap<>();
-        user.put(ANGGOTA_ID, sharedPreferences.getString(ANGGOTA_ID,null));
-        user.put(ANGGOTA_USER_ID, sharedPreferences.getString(ANGGOTA_USER_ID,null));
-        user.put(ANGGOTA_ID_ID, sharedPreferences.getString(ANGGOTA_ID_ID,null));
-        user.put(ANGGOTA_ROLE, sharedPreferences.getString(ANGGOTA_ROLE,null));
-        user.put(ANGGOTA_TUGAS, sharedPreferences.getString(ANGGOTA_TUGAS,null));
-        user.put(ANGGOTA_CREATE, sharedPreferences.getString(ANGGOTA_CREATE,null));
         return user;
     }
 

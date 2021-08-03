@@ -69,7 +69,6 @@ public class UsulanPengabdianActivity extends AppCompatActivity implements Penga
             String tahun = data.get(position).getUsulanPengabdianTahun();
             String submit = data.get(position).getUsulanPengabdianSubmit();
             String status = data.get(position).getUsulanPengabdianStatus();
-            String komentar = data.get(position).getUsulanPengabdianKomentar();
             String mahasiswa = data.get(position).getUsulanPengabdianMahasiswaTerlibat();
 
 
@@ -84,7 +83,6 @@ public class UsulanPengabdianActivity extends AppCompatActivity implements Penga
             intent.putExtra("tahun", tahun);
             intent.putExtra("submit", submit);
             intent.putExtra("status", status);
-            intent.putExtra("komentar", komentar);
             intent.putExtra("mahasiswa", mahasiswa);
             startActivityForResult(intent, INTENT_DETAIL_PENGABDIAN);
         }));

@@ -71,7 +71,7 @@ public class LaporanKemajuanPengabdianActivity extends AppCompatActivity impleme
             String usulan_luaran_pengabdian_rencana = data.get(position).getUsulanLuaranPengabdianRencana();
 
 
-            Intent intent = new Intent(this, LaporanKemajuanPenelitianDetailActivity.class);
+            Intent intent = new Intent(this, LaporanKemajuanPengabdianDetailActivity.class);
             intent.putExtra("usulan_pengabdian_judul", usulan_pengabdian_judul);
             intent.putExtra("laporan_kemajuan_id", laporan_kemajuan_id);
             intent.putExtra("laporan_kemajuan_luaran_id", laporan_kemajuan_luaran_id);
