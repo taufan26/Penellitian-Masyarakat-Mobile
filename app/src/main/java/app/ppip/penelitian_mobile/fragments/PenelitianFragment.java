@@ -48,7 +48,7 @@ public class PenelitianFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity().getApplicationContext(), UsulanPenelitianActivity.class);
-                getfeature();
+                //getfeature();
                 startActivity(i);
             }
         });

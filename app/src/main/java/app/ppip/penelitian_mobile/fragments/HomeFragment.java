@@ -1,7 +1,12 @@
 package app.ppip.penelitian_mobile.fragments;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +16,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import app.ppip.penelitian_mobile.R;
 import app.ppip.penelitian_mobile.activities.InfoAplikasiActivity;
@@ -32,6 +42,10 @@ public class HomeFragment extends Fragment {
     SessionManager sessionManager;
     ApiInterface apiInterface;
     String  user_id;
+    ProgressDialog progressDialog;
+    private static final String TAG = "PushNotification";
+    private static final String CHANNEL_ID = "101";
+
 
     @Nullable
     @Override
@@ -48,14 +62,31 @@ public class HomeFragment extends Fragment {
         CardView cv_profile = rootView.findViewById(R.id.menu_profile);
         CardView cv_info = rootView.findViewById(R.id.menu_info);
 
+        progressDialog = new ProgressDialog(this.getActivity());
+        progressDialog.setMessage("loading....");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        AlertDialog.Builder alert = new AlertDialog.Builder(this.getActivity());
+
         user_id  = sessionManager.getUserDetail().get(SessionManager.USER_ID);
-        //getfeature();
+        //getToken();
+        //createNotificationChannel();
+        //subscribetoTopic();
+        getfeature();
 
         cv_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sessionManager.logoutSession();
-                moveToLogin();
+                alert.setTitle("Konfirmasi !");
+                alert.setMessage("Apakah Anda Yakin Ingin Logout?");
+                alert.setNegativeButton("IYA", (dialog, which) -> {
+                    dialog.dismiss();
+                    sessionManager.logoutSession();
+                    moveToLogin();
+                });
+                alert.setPositiveButton("Batal",
+                        (dialog, which) -> dialog.dismiss());
+
+                alert.show();
             }
         });
 
@@ -85,12 +116,13 @@ public class HomeFragment extends Fragment {
     }
 
     public void getfeature() {
-
+        //progressDialog.show();
         ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
         Call<Feature> featurecall = apiInterface.GetFeture();
         featurecall.enqueue(new Callback<Feature>() {
             @Override
             public void onResponse(@NonNull Call<Feature> call, @NonNull Response<Feature> response) {
+                //progressDialog.dismiss();
                 if (response.isSuccessful() && response.body() != null) {
                     sessionManager = new SessionManager(HomeFragment.this.getActivity());
                     FeatureItem data = response.body().getData();
@@ -100,8 +132,11 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<Feature> call, Throwable t) {
+                //progressDialog.dismiss();
                 Toast.makeText(HomeFragment.this.getActivity(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
+
+
 }

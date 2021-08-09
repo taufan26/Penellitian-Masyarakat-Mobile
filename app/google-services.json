@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1094500476330",
+    "project_id": "simtabmas",
+    "storage_bucket": "simtabmas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094500476330:android:0c9cbcfa3773d185fa77d3",
+        "android_client_info": {
+          "package_name": "app.ppip.penelitian_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1094500476330-64o43dcr00cq2cfsga2aiavl4gdjbetk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.ppip.penelitian_mobile",
+            "certificate_hash": "34cf359fda32669201f14f035e8a633dfc31fb20"
+          }
+        },
+        {
+          "client_id": "1094500476330-ac68sm1uhuaqbj3fk324boqsp4hppst8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuelDFnePyniPqGYMf12Dbiq3g8mQHVe4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1094500476330-ac68sm1uhuaqbj3fk324boqsp4hppst8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

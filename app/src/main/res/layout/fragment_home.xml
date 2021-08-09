@@ -42,7 +42,15 @@
                 android:src="@drawable/logo_polindra"
                 android:layout_width="62dp"
                 android:layout_height="62dp"/>
+            <ImageView
+                android:id="@+id/logout"
+                android:layout_toLeftOf="@+id/logo"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:src="@drawable/cancel"
+                android:layout_marginRight="20dp"/>
 
+            <!--
             <ImageView
                 android:id="@+id/notifikasi"
                 android:src="@drawable/ic_baseline_notifications_24"
@@ -50,12 +58,7 @@
                 android:layout_width="52dp"
                 android:layout_height="52dp" />
 
-            <ImageView
-                android:id="@+id/logout"
-                android:layout_toLeftOf="@+id/notifikasi"
-                android:layout_width="52dp"
-                android:layout_height="52dp"
-                android:src="@drawable/cancel"/>
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/notif_card"
@@ -77,6 +80,7 @@
 
 
             </androidx.cardview.widget.CardView>
+             -->
 
 
         </RelativeLayout>

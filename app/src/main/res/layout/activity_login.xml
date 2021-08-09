@@ -26,23 +26,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="70dp"
-                android:layout_marginRight="10dp"
-                android:paddingTop="60dp"
-                android:paddingLeft="20dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="Mobile APP"
-                android:textColor="#ffffff"
-                android:textSize="20.5sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="70dp"
                 android:layout_marginRight="8dp"
                 android:paddingTop="20dp"
                 android:paddingLeft="20dp"
                 android:fontFamily="@font/poppins_medium"
-                android:text="SIMLITABNAS POLINDRA"
+                android:text="SIMTABMAS POLINDRA"
                 android:textColor="#ffffff"
                 android:textSize="20.5sp" />
         </FrameLayout>

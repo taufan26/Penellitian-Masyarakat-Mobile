@@ -65,7 +65,11 @@ public class ProfileActivity extends AppCompatActivity {
         Email.setText(email);
         Picasso.get().load(Urls.image_url+foto).transform(new CircleTransform()).into(showFoto);
         bio_hp.setText(hp);
-        jk.setText(Sex);
+        if (Sex.equals("0")) {
+            jk.setText("Laki-Laki");
+        } else {
+            jk.setText("Perempuan");
+        }
         alamat.setText(Alamat);
         tempat.setText(TL);
         tanggal.setText(TTL);

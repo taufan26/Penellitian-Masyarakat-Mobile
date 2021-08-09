@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Penelitian_Mobile"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.InfoAplikasiActivity"></activity>
+        <activity android:name=".activities.InfoAplikasiActivity" />
         <activity android:name=".activities.LaporanAkhirDetailPengabdianActivity" />
         <activity android:name=".activities.LaporanAkhirDetailPenelitianActivity" />
         <activity android:name=".activities.LaporanAkhirPengabdianActivity" />
@@ -50,6 +50,13 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <service android:name=".firebase.FirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

@@ -65,19 +65,23 @@ public class UsulanDetailPengabdianActivity extends AppCompatActivity {
         }
 
         if (Skema.equals("1")) {
-            skema.setText("Sed");
+            skema.setText("Program Kemitraan Masyarakat");
         } else if (Skema.equals("2")) {
-            skema.setText("Praesentium");
+            skema.setText("Program Pengembangan Kewirausahaan");
         } else if (Skema.equals("3")) {
-            skema.setText("Delectus");
+            skema.setText("Program Pengembangan Usaha Produk Intelektual Kamp");
+        }else {
+            skema.setText(Skema);
         }
 
         if (Bidang.equals("1")) {
-            bidang.setText("Nostrum");
+            bidang.setText("Pangan dan Pertanian");
         } else if (Bidang.equals("2")) {
-            bidang.setText("Consequuntur");
+            bidang.setText("Kesehatan dan Obat");
         } else if (Bidang.equals("3")) {
-            bidang.setText("Porro");
+            bidang.setText("Energi dan Energi Terbarukan");
+        }else {
+            bidang.setText(Bidang);
         }
 
 

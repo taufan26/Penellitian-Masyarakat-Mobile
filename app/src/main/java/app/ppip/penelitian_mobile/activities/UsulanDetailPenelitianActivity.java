@@ -30,7 +30,7 @@ public class UsulanDetailPenelitianActivity extends AppCompatActivity {
         status = findViewById(R.id.detail_status_penelitan);
         skema = findViewById(R.id.detail_Skema_penelitan);
         bidang = findViewById(R.id.detail_bidang_penelitan);
-        komentar = findViewById(R.id.detail_komentar_penelitan);
+        //komentar = findViewById(R.id.detail_komentar_penelitan);
         mahasiswa = findViewById(R.id.detail_mahasiswa_penelitan);
         button = findViewById(R.id.detail_penelitan_btn);
         btn_tambah = findViewById(R.id.detail_penelitan_btn_tambah);
@@ -46,7 +46,7 @@ public class UsulanDetailPenelitianActivity extends AppCompatActivity {
         Mahasiswa = intent.getStringExtra("mahasiswa");
         Tahun = intent.getStringExtra("tahun");
         Submit = intent.getStringExtra("submit");
-        Komentar = intent.getStringExtra("komentar");
+        //Komentar = intent.getStringExtra("komentar");
 
         judul.setText(Judul);
         kegiatan.setText(Kegiatan);
@@ -68,30 +68,25 @@ public class UsulanDetailPenelitianActivity extends AppCompatActivity {
         }
 
         if (Skema.equals("1")) {
-            skema.setText("Sed");
+            skema.setText("Program Kemitraan Masyarakat");
         } else if (Skema.equals("2")) {
-            skema.setText("Praesentium");
+            skema.setText("Program Pengembangan Kewirausahaan");
         } else if (Skema.equals("3")) {
-            skema.setText("Delectus");
+            skema.setText("Program Pengembangan Usaha Produk Intelektual Kamp");
         }else {
             skema.setText(Skema);
         }
 
         if (Bidang.equals("1")) {
-            bidang.setText("Nostrum");
+            bidang.setText("Pangan dan Pertanian");
         } else if (Bidang.equals("2")) {
-            bidang.setText("Consequuntur");
+            bidang.setText("Kesehatan dan Obat");
         } else if (Bidang.equals("3")) {
-            bidang.setText("Porro");
+            bidang.setText("Energi dan Energi Terbarukan");
         }else {
             bidang.setText(Bidang);
         }
 
-        if (Komentar != null) {
-            komentar.setText(Komentar);
-        }else {
-            komentar.setText("-");
-        }
 
         sessionManger = new SessionManager(UsulanDetailPenelitianActivity.this);
         Pengusul = sessionManger.getUserDetail().get(SessionManager.USER_NAME);
