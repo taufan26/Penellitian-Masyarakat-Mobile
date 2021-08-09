@@ -2,4 +2,5 @@ package app.ppip.penelitian_mobile.utils;
 
 public class Urls {
     public static final String image_url = "http://apip3m.000webhostapp.com/API_penelitian/Image/";
+    public static final String file_url = "http://apip3m.000webhostapp.com/API_penelitian/File/";
 }

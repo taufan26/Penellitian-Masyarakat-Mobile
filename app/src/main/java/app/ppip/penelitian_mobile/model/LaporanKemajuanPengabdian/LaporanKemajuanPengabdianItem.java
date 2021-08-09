@@ -46,6 +46,9 @@ public class LaporanKemajuanPengabdianItem{
 	@SerializedName("usulan_luaran_pengabdian_tipe")
 	private String usulanLuaranPengabdianTipe;
 
+	@SerializedName("laporan_kemajuan_original_name")
+	private String laporanKemajuanOriginalName;
+
 	public String getLaporanKemajuanBaseName(){
 		return laporanKemajuanBaseName;
 	}
@@ -60,6 +63,10 @@ public class LaporanKemajuanPengabdianItem{
 
 	public String getCreatedAt(){
 		return createdAt;
+	}
+
+	public String getLaporanKemajuanOriginalName() {
+		return laporanKemajuanOriginalName;
 	}
 
 	public String getUsulanLuaranPengabdianStatus(){

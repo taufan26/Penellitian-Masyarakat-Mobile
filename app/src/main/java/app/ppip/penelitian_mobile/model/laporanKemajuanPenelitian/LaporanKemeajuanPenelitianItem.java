@@ -10,6 +10,10 @@ public class LaporanKemeajuanPenelitianItem{
 	@SerializedName("laporan_kemajuan_base_name")
 	private String laporanKemajuanBaseName;
 
+
+	@SerializedName("laporan_kemajuan_original_name")
+	private String laporanKemajuanOriginalName;
+
 	@SerializedName("created_at")
 	private String createdAt;
 
@@ -100,5 +104,9 @@ public class LaporanKemeajuanPenelitianItem{
 
 	public String getUsulanLuaranPenelitianRencana(){
 		return usulanLuaranPenelitianRencana;
+	}
+
+	public String getLaporanKemajuanOriginalName() {
+		return laporanKemajuanOriginalName;
 	}
 }

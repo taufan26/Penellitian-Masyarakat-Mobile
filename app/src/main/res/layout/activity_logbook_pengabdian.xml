@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtdasboard"
             android:layout_marginTop="6dp"
-            android:text="Pengabdian Mobile APP"
+            android:text="Pengabdian"
             android:textColor="#FFFFFF"
             android:textSize="14sp" />
 

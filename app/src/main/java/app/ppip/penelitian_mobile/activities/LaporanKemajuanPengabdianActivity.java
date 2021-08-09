@@ -62,6 +62,7 @@ public class LaporanKemajuanPengabdianActivity extends AppCompatActivity impleme
             String laporan_kemajuan_luaran_id = data.get(position).getLaporanKemajuanLuaranId();
             String laporan_kemajuan_date = data.get(position).getLaporanKemajuanDate();
             String laporan_kemajuan_base_name = data.get(position).getLaporanKemajuanBaseName();
+            String laporan_kemajuan_original_name = data.get(position).getLaporanKemajuanOriginalName();
             String usulan_luaran_id = data.get(position).getUsulanLuaranId();
             String usulan_luaran_pengabdian_id = data.get(position).getUsulanLuaranPengabdianId();
             String usulan_luaran_pengabdian_tipe = data.get(position).getUsulanLuaranPengabdianTipe();
@@ -77,6 +78,7 @@ public class LaporanKemajuanPengabdianActivity extends AppCompatActivity impleme
             intent.putExtra("laporan_kemajuan_luaran_id", laporan_kemajuan_luaran_id);
             intent.putExtra("laporan_kemajuan_date", laporan_kemajuan_date);
             intent.putExtra("laporan_kemajuan_base_name", laporan_kemajuan_base_name);
+            intent.putExtra("laporan_kemajuan_original_name", laporan_kemajuan_original_name);
             intent.putExtra("usulan_luaran_id", usulan_luaran_id);
             intent.putExtra("usulan_luaran_pengabdian_id", usulan_luaran_pengabdian_id);
             intent.putExtra("usulan_luaran_pengabdian_tipe", usulan_luaran_pengabdian_tipe);

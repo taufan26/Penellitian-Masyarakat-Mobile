@@ -2,19 +2,27 @@ package app.ppip.penelitian_mobile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DownloadManager;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
+import android.webkit.CookieManager;
+import android.webkit.URLUtil;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import app.ppip.penelitian_mobile.R;
 import app.ppip.penelitian_mobile.adapters.SessionManager;
+import app.ppip.penelitian_mobile.utils.Urls;
 
 public class LaporanKemajuanPenelitianDetailActivity extends AppCompatActivity {
 
-    TextView tv_judul, tv_tanggal, tv_nama, tv_luaranTipe, tv_luaranTahun, tv_luaranJenis, tv_luaranStatus, tv_luaranRencana, button;
+    TextView tv_judul, tv_tanggal, tv_nama, tv_luaranTipe, tv_luaranTahun, tv_luaranJenis, tv_luaranStatus,
+            tv_luaranRencana, button, download;
     SessionManager sessionManger;
-    String Id, Judul, Tanggal, Nama, LuaranTipe, LuaranTahun, LuaranJenis, LuaranStatus, LuaranRencana;
+    String Id, Judul, Tanggal, Nama, LuaranTipe, LuaranTahun, LuaranJenis, LuaranStatus, LuaranRencana, original;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +38,7 @@ public class LaporanKemajuanPenelitianDetailActivity extends AppCompatActivity {
         tv_luaranStatus = findViewById(R.id.detail_laporan_kemajuan_luaran_status_penelitian);
         tv_luaranRencana = findViewById(R.id.detail_laporan_kemajuan_luaran_rencana_penelitian);
         button = findViewById(R.id.laporan_kemajuan_penelitian_btn);
-
+        download = findViewById(R.id.laporan_kemajuan_penelitian_download_btn);
 
         Intent intent = getIntent();
         Id = intent.getStringExtra("laporan_kemajuan_id");
@@ -42,6 +50,7 @@ public class LaporanKemajuanPenelitianDetailActivity extends AppCompatActivity {
         LuaranJenis = intent.getStringExtra("usulan_luaran_penelitian_jenis");
         LuaranStatus = intent.getStringExtra("usulan_luaran_penelitian_status");
         LuaranRencana = intent.getStringExtra("usulan_luaran_penelitian_rencana");
+        original = intent.getStringExtra("laporan_kemajuan_original_name");
 
         tv_judul.setText(Judul);
         tv_tanggal.setText(Tanggal);
@@ -51,7 +60,27 @@ public class LaporanKemajuanPenelitianDetailActivity extends AppCompatActivity {
         tv_luaranJenis.setText(LuaranJenis);
         tv_luaranStatus.setText(LuaranStatus);
         tv_luaranRencana.setText(LuaranRencana);
-        
+
+        download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String getUrl = Urls.file_url+original;
+
+                DownloadManager.Request request  = new DownloadManager.Request(Uri.parse(getUrl));
+                String title = URLUtil.guessFileName(getUrl,null,null);
+                request.setTitle(title);
+                request.setDescription("Downloading Laporan Harap Tunggu . . . .");
+                String cookie = CookieManager.getInstance().getCookie(getUrl);
+                request.addRequestHeader("cookie", cookie);
+                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,title);
+
+                DownloadManager downloadManager = (DownloadManager)getSystemService(DOWNLOAD_SERVICE);
+                downloadManager.enqueue(request);
+
+                Toast.makeText(LaporanKemajuanPenelitianDetailActivity.this, "Mulai Downloading.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
