@@ -71,7 +71,7 @@ public class HomeFragment extends Fragment {
         //getToken();
         //createNotificationChannel();
         //subscribetoTopic();
-        getfeature();
+        //getfeature();
 
         cv_logout.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 import app.ppip.penelitian_mobile.adapters.SessionManager;
 import app.ppip.penelitian_mobile.api.ApiInterface;
@@ -28,8 +32,11 @@ public class MainActivity extends AppCompatActivity {
     private static final String CHANNEL_ID = "101";
     private static final String TAG = "PushNotification";
     SessionManager sessionManager;
+    BottomNavigationView bottom_nav;
     ApiInterface apiInterface;
     String  user_id;
+    Deque<Integer> integerDeque = new ArrayDeque<>(3);
+    boolean flag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,39 +49,62 @@ public class MainActivity extends AppCompatActivity {
         createNotificationChannel();
         subscribetoTopic();
 
-        BottomNavigationView bottom_nav = findViewById(R.id.bottom_navigation);
+        bottom_nav = findViewById(R.id.bottom_navigation);
+
+
+        integerDeque.push(R.id.nav_beranda);
+
+        loadFragment(new HomeFragment());
+
+        bottom_nav.setSelectedItemId(R.id.nav_beranda);
         bottom_nav.setOnNavigationItemSelectedListener(navListener);
+        
+    }
 
-
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new HomeFragment()).commit();
-
+    private void loadFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container,fragment,fragment.getClass().getSimpleName())
+                .commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Fragment selectionFragment = null;
-                    switch (item.getItemId()){
-                        case R.id.nav_beranda:
-                            selectionFragment = new HomeFragment();
-                            break;
-                        case R.id.nav_penelitian:
-                            selectionFragment = new PenelitianFragment();
-                            break;
-                        case R.id.nav_pengabdian:
-                            selectionFragment = new PengabdianFragment();
-                            break;
+                    int id = item.getItemId();
+                    if (integerDeque.contains(id)){
+                        if (id == R.id.nav_beranda){
+                            if (integerDeque.size() != 1){
+                                if (flag){
+                                    integerDeque.addFirst(R.id.nav_beranda);
+                                    flag = false;
+                                }
+                            }
+                        }
+                        integerDeque.remove(id);
                     }
-
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            selectionFragment).commit();
-
+                    integerDeque.push(id);
+                    loadFragment(getFrament(item.getItemId()));
                     return true;
                 }
             };
+
+    private Fragment getFrament(int itemId) {
+        switch (itemId){
+            case R.id.nav_penelitian:
+                bottom_nav.getMenu().getItem(0).setChecked(true);
+                return new PenelitianFragment();
+            case R.id.nav_beranda:
+                bottom_nav.getMenu().getItem(1).setChecked(true);
+                return new HomeFragment();
+            case R.id.nav_pengabdian:
+                bottom_nav.getMenu().getItem(2).setChecked(true);
+                return new PengabdianFragment();
+        }
+        bottom_nav.getMenu().getItem(1).setChecked(true);
+        return new HomeFragment();
+    }
 
     private void getToken() {
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
@@ -114,4 +144,13 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    @Override
+    public void onBackPressed() {
+        integerDeque.pop();
+        if (!integerDeque.isEmpty()){
+            loadFragment(getFrament(integerDeque.peek()));
+        }else {
+            finish();
+        }
+    }
 }

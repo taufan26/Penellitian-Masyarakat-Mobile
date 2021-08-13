@@ -44,11 +44,12 @@ public class PenelitianFragment extends Fragment {
         CardView cv_laporan_akhir = rootView.findViewById(R.id.menu_lapak_penelitian);
 
 
+
+
         cv_usulan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity().getApplicationContext(), UsulanPenelitianActivity.class);
-                //getfeature();
                 startActivity(i);
             }
         });
@@ -80,24 +81,4 @@ public class PenelitianFragment extends Fragment {
         return rootView;
     }
 
-    public void getfeature() {
-
-        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<Feature> featurecall = apiInterface.GetFeture();
-        featurecall.enqueue(new Callback<Feature>() {
-            @Override
-            public void onResponse(@NonNull Call<Feature> call, @NonNull Response<Feature> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    sessionManger = new SessionManager(PenelitianFragment.this.getActivity());
-                    FeatureItem data = response.body().getData();
-                    sessionManger.createFeatureSession(data);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Feature> call, Throwable t) {
-                Toast.makeText(PenelitianFragment.this.getActivity(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 }
