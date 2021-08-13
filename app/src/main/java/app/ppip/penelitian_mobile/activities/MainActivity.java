@@ -22,11 +22,17 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 import app.ppip.penelitian_mobile.adapters.SessionManager;
+import app.ppip.penelitian_mobile.api.ApiClient;
 import app.ppip.penelitian_mobile.api.ApiInterface;
 import app.ppip.penelitian_mobile.fragments.HomeFragment;
 import app.ppip.penelitian_mobile.fragments.PenelitianFragment;
 import app.ppip.penelitian_mobile.fragments.PengabdianFragment;
 import app.ppip.penelitian_mobile.R;
+import app.ppip.penelitian_mobile.model.feature.Feature;
+import app.ppip.penelitian_mobile.model.feature.FeatureItem;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     private static final String CHANNEL_ID = "101";
@@ -48,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         getToken();
         createNotificationChannel();
         subscribetoTopic();
+        getfeature();
 
         bottom_nav = findViewById(R.id.bottom_navigation);
 
@@ -58,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         bottom_nav.setSelectedItemId(R.id.nav_beranda);
         bottom_nav.setOnNavigationItemSelectedListener(navListener);
-        
+
     }
 
     private void loadFragment(Fragment fragment) {
@@ -142,6 +149,29 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Selamat Datang!", Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    public void getfeature() {
+        //progressDialog.show();
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        Call<Feature> featurecall = apiInterface.GetFeture();
+        featurecall.enqueue(new Callback<Feature>() {
+            @Override
+            public void onResponse(@NonNull Call<Feature> call, @NonNull Response<Feature> response) {
+                //progressDialog.dismiss();
+                if (response.isSuccessful() && response.body() != null) {
+                    sessionManager = new SessionManager(MainActivity.this);
+                    FeatureItem data = response.body().getData();
+                    sessionManager.createFeatureSession(data);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Feature> call, Throwable t) {
+                //progressDialog.dismiss();
+                Toast.makeText(MainActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

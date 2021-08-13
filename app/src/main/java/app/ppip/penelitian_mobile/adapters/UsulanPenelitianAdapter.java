@@ -44,6 +44,7 @@ public class UsulanPenelitianAdapter extends RecyclerView.Adapter<UsulanPeneliti
         holder.tv_judul.setText(datausulanpenelitian.getUsulanPenelitianJudul());
         holder.tv_tahun.setText(datausulanpenelitian.getUsulanPenelitianTahun());
         holder.tv_hari.setText(datausulanpenelitian.getUsulanPenelitianLamaKegiatan());
+        holder.tv_anggota.setText(datausulanpenelitian.getAnggotaPenelitianRole());
         Status = datausulanpenelitian.getUsulanPenelitianStatus();
         if (Status.equals("diterima")){
             holder.tv_status.setText("Diterima");
@@ -67,7 +68,7 @@ public class UsulanPenelitianAdapter extends RecyclerView.Adapter<UsulanPeneliti
 
     class RecyclerViewAdapter extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView tv_judul,  tv_tahun, tv_hari, tv_status;
+        TextView tv_judul,  tv_tahun, tv_hari, tv_status, tv_anggota;
         CardView card_item;
         UsulanPenelitianAdapter.ItemClickListener itemClickListener;
 
@@ -78,6 +79,7 @@ public class UsulanPenelitianAdapter extends RecyclerView.Adapter<UsulanPeneliti
             tv_tahun = itemView.findViewById(R.id.usulan_tahun);
             tv_hari = itemView.findViewById(R.id.usulan_hari);
             tv_status = itemView.findViewById(R.id.usulan_status);
+            tv_anggota = itemView.findViewById(R.id.usulan_anggota);
             card_item = itemView.findViewById(R.id.card_usulan);
 
             this.itemClickListener = itemClickListener;

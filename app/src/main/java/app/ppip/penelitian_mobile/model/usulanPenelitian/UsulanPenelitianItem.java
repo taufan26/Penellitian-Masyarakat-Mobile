@@ -61,6 +61,10 @@ public class UsulanPenelitianItem{
 	@SerializedName("usulan_penelitian_kategori")
 	private String usulanPenelitianKategori;
 
+	@Expose
+	@SerializedName("anggota_penelitian_role")
+	private String anggotaPenelitianRole;
+
 	public String getUsulanPenelitianId(){
 		return usulanPenelitianId;
 	}
@@ -115,5 +119,9 @@ public class UsulanPenelitianItem{
 
 	public String getUsulanPenelitianKategori(){
 		return usulanPenelitianKategori;
+	}
+
+	public String getAnggotaPenelitianRole() {
+		return anggotaPenelitianRole;
 	}
 }

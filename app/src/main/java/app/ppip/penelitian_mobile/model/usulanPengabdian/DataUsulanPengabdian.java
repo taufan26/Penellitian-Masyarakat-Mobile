@@ -57,6 +57,10 @@ public class DataUsulanPengabdian {
 	@SerializedName("usulan_pengabdian_id")
 	private String usulanPengabdianId;
 
+	@Expose
+	@SerializedName("anggota_pengabdian_role")
+	private String anggotaPengabdianRole;
+
 	public String getUsulanPengabdianMahasiswaTerlibat(){
 		return usulanPengabdianMahasiswaTerlibat;
 	}
@@ -107,5 +111,9 @@ public class DataUsulanPengabdian {
 
 	public String getUsulanPengabdianId(){
 		return usulanPengabdianId;
+	}
+
+	public String getAnggotaPengabdianRole() {
+		return anggotaPengabdianRole;
 	}
 }
