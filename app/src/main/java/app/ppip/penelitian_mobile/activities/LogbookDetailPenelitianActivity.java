@@ -119,11 +119,11 @@ public class LogbookDetailPenelitianActivity extends AppCompatActivity {
             public void onClick(View v) {
                 alert.setTitle("Konfirmasi !");
                 alert.setMessage("Apakah Anda Yakin?");
-                alert.setNegativeButton("IYA", (dialog, which) -> {
+                alert.setPositiveButton("IYA", (dialog, which) -> {
                     dialog.dismiss();
                     deleteLogbook(logbook_id);
                 });
-                alert.setPositiveButton("Batal",
+                alert.setNegativeButton("Batal",
                         (dialog, which) -> dialog.dismiss());
 
                 alert.show();

@@ -19,9 +19,9 @@ import app.ppip.penelitian_mobile.utils.Urls;
 
 public class LaporanKemajuanPengabdianDetailActivity extends AppCompatActivity {
 
-    TextView tv_judul, tv_tanggal, tv_nama, tv_luaranTipe, tv_luaranTahun, tv_luaranJenis,
+    TextView tv_judul, tv_tanggal, tv_nama, tv_extension, tv_luaranTahun, tv_luaranJenis,
             tv_luaranStatus, tv_luaranRencana, button, download;
-    String Id, Judul, Tanggal, Nama, LuaranTipe, LuaranTahun, LuaranJenis, LuaranStatus, LuaranRencana, original;
+    String Id, Judul, Tanggal, Nama, extension, LuaranTahun, LuaranJenis, LuaranStatus, LuaranRencana, original;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,34 +31,21 @@ public class LaporanKemajuanPengabdianDetailActivity extends AppCompatActivity {
         tv_judul = findViewById(R.id.detail_laporan_kemajuan_judul_pengabdian);
         tv_tanggal = findViewById(R.id.detail_laporan_kemajuan_tanggal_pengabdian);
         tv_nama = findViewById(R.id.detail_laporan_kemajuan_nama_pengabdian);
-        tv_luaranTipe = findViewById(R.id.detail_laporan_kemajuan_tipe_pengabdian);
-        tv_luaranTahun = findViewById(R.id.detail_laporan_kemajuan_luaran_tahun_pengabdian);
-        tv_luaranJenis = findViewById(R.id.detail_laporan_kemajuan_luaran_jenis_pengabdian);
-        tv_luaranStatus = findViewById(R.id.detail_laporan_kemajuan_luaran_status_pengabdian);
-        tv_luaranRencana = findViewById(R.id.detail_laporan_kemajuan_luaran_rencana_pengabdian);
         button = findViewById(R.id.laporan_kemajuan_pengabdian_btn);
         download = findViewById(R.id.laporan_kemajuan_pengabdian_download_btn);
-
+        tv_extension = findViewById(R.id.detail_laporan_kemajuan_extensi_pengabdian);
 
         Intent intent = getIntent();
         Judul = intent.getStringExtra("usulan_pengabdian_judul");
         Tanggal = intent.getStringExtra("laporan_kemajuan_date");
         Nama = intent.getStringExtra("laporan_kemajuan_base_name");
-        LuaranTipe = intent.getStringExtra("usulan_luaran_pengabdian_tipe");
-        LuaranTahun = intent.getStringExtra("usulan_luaran_pengabdian_tahun");
-        LuaranJenis = intent.getStringExtra("usulan_luaran_pengabdian_jenis");
-        LuaranStatus = intent.getStringExtra("usulan_luaran_pengabdian_status");
-        LuaranRencana = intent.getStringExtra("usulan_luaran_pengabdian_rencana");
         original = intent.getStringExtra("laporan_kemajuan_original_name");
+        extension = intent.getStringExtra("laporan_kemajuan_extension");
 
         tv_judul.setText(Judul);
         tv_tanggal.setText(Tanggal);
-        tv_luaranTipe.setText(LuaranTipe);
         tv_nama.setText(Nama);
-        tv_luaranTahun.setText(LuaranTahun);
-        tv_luaranJenis.setText(LuaranJenis);
-        tv_luaranStatus.setText(LuaranStatus);
-        tv_luaranRencana.setText(LuaranRencana);
+        tv_extension.setText(extension);
 
         download.setOnClickListener(new View.OnClickListener() {
             @Override

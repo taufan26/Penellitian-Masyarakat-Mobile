@@ -47,7 +47,7 @@
                 android:layout_toLeftOf="@+id/logo"
                 android:layout_width="52dp"
                 android:layout_height="52dp"
-                android:src="@drawable/cancel"
+                android:src="@drawable/logout_ic"
                 android:layout_marginRight="20dp"/>
 
             <!--

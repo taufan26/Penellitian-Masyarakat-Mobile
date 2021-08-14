@@ -52,7 +52,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         sessionManager = new SessionManager(HomeFragment.this.getActivity());
-        if (sessionManager.isLoggedIn() == false){
+        if (!sessionManager.isLoggedIn()){
             moveToLogin();
         }
 
@@ -78,12 +78,12 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 alert.setTitle("Konfirmasi !");
                 alert.setMessage("Apakah Anda Yakin Ingin Logout?");
-                alert.setNegativeButton("IYA", (dialog, which) -> {
+                alert.setPositiveButton("IYA", (dialog, which) -> {
                     dialog.dismiss();
                     sessionManager.logoutSession();
                     moveToLogin();
                 });
-                alert.setPositiveButton("Batal",
+                alert.setNegativeButton("Batal",
                         (dialog, which) -> dialog.dismiss());
 
                 alert.show();

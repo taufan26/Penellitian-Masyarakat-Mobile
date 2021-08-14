@@ -51,18 +51,16 @@ public class MainActivity extends AppCompatActivity {
 
         sessionManager = new SessionManager(MainActivity.this);
         user_id  = sessionManager.getUserDetail().get(SessionManager.USER_ID);
-        getToken();
-        createNotificationChannel();
-        subscribetoTopic();
-        getfeature();
+        if (sessionManager.isLoggedIn()){
+            getToken();
+            createNotificationChannel();
+            subscribetoTopic();
+            getfeature();
+        }
 
         bottom_nav = findViewById(R.id.bottom_navigation);
-
-
         integerDeque.push(R.id.nav_beranda);
-
         loadFragment(new HomeFragment());
-
         bottom_nav.setSelectedItemId(R.id.nav_beranda);
         bottom_nav.setOnNavigationItemSelectedListener(navListener);
 

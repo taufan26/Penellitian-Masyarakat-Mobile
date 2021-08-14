@@ -59,33 +59,19 @@ public class LaporanKemajuanPengabdianActivity extends AppCompatActivity impleme
         itemClickListener = (((view, position) -> {
             String usulan_pengabdian_judul = data.get(position).getUsulanPengabdianJudul();
             String laporan_kemajuan_id = data.get(position).getLaporanKemajuanId();
-            String laporan_kemajuan_luaran_id = data.get(position).getLaporanKemajuanLuaranId();
             String laporan_kemajuan_date = data.get(position).getLaporanKemajuanDate();
             String laporan_kemajuan_base_name = data.get(position).getLaporanKemajuanBaseName();
             String laporan_kemajuan_original_name = data.get(position).getLaporanKemajuanOriginalName();
-            String usulan_luaran_id = data.get(position).getUsulanLuaranId();
-            String usulan_luaran_pengabdian_id = data.get(position).getUsulanLuaranPengabdianId();
-            String usulan_luaran_pengabdian_tipe = data.get(position).getUsulanLuaranPengabdianTipe();
-            String usulan_luaran_pengabdian_tahun = data.get(position).getUsulanLuaranPengabdianTahun();
-            String usulan_luaran_pengabdian_jenis = data.get(position).getUsulanLuaranPengabdianJenis();
-            String usulan_luaran_pengabdian_status = data.get(position).getUsulanLuaranPengabdianStatus();
-            String usulan_luaran_pengabdian_rencana = data.get(position).getUsulanLuaranPengabdianRencana();
+            String laporan_kemajuan_extension = data.get(position).getLaporanKemajuanExtension();
 
 
             Intent intent = new Intent(this, LaporanKemajuanPengabdianDetailActivity.class);
             intent.putExtra("usulan_pengabdian_judul", usulan_pengabdian_judul);
             intent.putExtra("laporan_kemajuan_id", laporan_kemajuan_id);
-            intent.putExtra("laporan_kemajuan_luaran_id", laporan_kemajuan_luaran_id);
             intent.putExtra("laporan_kemajuan_date", laporan_kemajuan_date);
             intent.putExtra("laporan_kemajuan_base_name", laporan_kemajuan_base_name);
             intent.putExtra("laporan_kemajuan_original_name", laporan_kemajuan_original_name);
-            intent.putExtra("usulan_luaran_id", usulan_luaran_id);
-            intent.putExtra("usulan_luaran_pengabdian_id", usulan_luaran_pengabdian_id);
-            intent.putExtra("usulan_luaran_pengabdian_tipe", usulan_luaran_pengabdian_tipe);
-            intent.putExtra("usulan_luaran_pengabdian_tahun", usulan_luaran_pengabdian_tahun);
-            intent.putExtra("usulan_luaran_pengabdian_jenis", usulan_luaran_pengabdian_jenis);
-            intent.putExtra("usulan_luaran_pengabdian_status", usulan_luaran_pengabdian_status);
-            intent.putExtra("usulan_luaran_pengabdian_rencana", usulan_luaran_pengabdian_rencana);
+            intent.putExtra("laporan_kemajuan_extension", laporan_kemajuan_extension);
             startActivityForResult(intent, INTENT_LAPORAN_KEMAJUAN_PENGABDIAN_DETAIL);
         }));
     }
