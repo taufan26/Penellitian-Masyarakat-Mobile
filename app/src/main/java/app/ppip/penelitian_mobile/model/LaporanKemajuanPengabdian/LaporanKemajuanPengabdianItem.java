@@ -28,6 +28,9 @@ public class LaporanKemajuanPengabdianItem{
 	@SerializedName("laporan_kemajuan_extension")
 	private String laporanKemajuanExtension;
 
+	@SerializedName("laporan_kemajuan_tipe")
+	private String laporanKemajuanTipe;
+
 	public String getLaporanKemajuanBaseName(){
 		return laporanKemajuanBaseName;
 	}
@@ -58,5 +61,9 @@ public class LaporanKemajuanPengabdianItem{
 
 	public String getLaporanKemajuanExtension() {
 		return laporanKemajuanExtension;
+	}
+
+	public String getLaporanKemajuanTipe() {
+		return laporanKemajuanTipe;
 	}
 }

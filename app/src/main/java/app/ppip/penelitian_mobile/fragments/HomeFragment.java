@@ -26,12 +26,15 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 import app.ppip.penelitian_mobile.R;
 import app.ppip.penelitian_mobile.activities.InfoAplikasiActivity;
+import app.ppip.penelitian_mobile.activities.MainActivity;
 import app.ppip.penelitian_mobile.activities.UsulanPenelitianActivity;
 import app.ppip.penelitian_mobile.adapters.SessionManager;
 import app.ppip.penelitian_mobile.activities.LoginActivity;
 import app.ppip.penelitian_mobile.activities.ProfileActivity;
 import app.ppip.penelitian_mobile.api.ApiClient;
 import app.ppip.penelitian_mobile.api.ApiInterface;
+import app.ppip.penelitian_mobile.model.counting.Counting;
+import app.ppip.penelitian_mobile.model.counting.DataCounting;
 import app.ppip.penelitian_mobile.model.feature.Feature;
 import app.ppip.penelitian_mobile.model.feature.FeatureItem;
 import retrofit2.Call;
@@ -41,8 +44,9 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
     SessionManager sessionManager;
     ApiInterface apiInterface;
-    String  user_id;
+    String  user_id, count_penelitian, count_pengabdian, count_riwayat_penelitian, count_riwayat_pengabdian;
     ProgressDialog progressDialog;
+    TextView tv_penelitian, tv_pengabdian, tv_riwayat_penelitian, tv_riwayat_pengabdian;
     private static final String TAG = "PushNotification";
     private static final String CHANNEL_ID = "101";
 
@@ -61,6 +65,10 @@ public class HomeFragment extends Fragment {
         ImageView cv_logout = rootView.findViewById(R.id.logout);
         CardView cv_profile = rootView.findViewById(R.id.menu_profile);
         CardView cv_info = rootView.findViewById(R.id.menu_info);
+        tv_penelitian = rootView.findViewById(R.id.menu_count_penelitian);
+        tv_pengabdian = rootView.findViewById(R.id.menu_count_pengabdian);
+        tv_riwayat_penelitian = rootView.findViewById(R.id.menu_count_riwayat_penelitian);
+        tv_riwayat_pengabdian = rootView.findViewById(R.id.menu_count_riwayat_pengabdian);
 
         progressDialog = new ProgressDialog(this.getActivity());
         progressDialog.setMessage("loading....");
@@ -68,10 +76,16 @@ public class HomeFragment extends Fragment {
         AlertDialog.Builder alert = new AlertDialog.Builder(this.getActivity());
 
         user_id  = sessionManager.getUserDetail().get(SessionManager.USER_ID);
-        //getToken();
-        //createNotificationChannel();
-        //subscribetoTopic();
-        //getfeature();
+        count_penelitian = sessionManager.getCountingDetail().get(SessionManager.COUNTING_PENELITIAN);
+        count_pengabdian = sessionManager.getCountingDetail().get(SessionManager.COUNTING_PENGABDIAN);
+        count_riwayat_penelitian = sessionManager.getCountingDetail().get(SessionManager.COUNTING_RIWAYAT_PENELITIAN);
+        count_riwayat_pengabdian = sessionManager.getCountingDetail().get(SessionManager.COUNTING_RIWAYAT_PENGABDIAN);
+
+        tv_penelitian.setText(count_penelitian);
+        tv_pengabdian.setText(count_pengabdian);
+        tv_riwayat_penelitian.setText(count_riwayat_penelitian);
+        tv_riwayat_pengabdian.setText(count_riwayat_pengabdian);
+
 
         cv_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,28 +129,27 @@ public class HomeFragment extends Fragment {
         getActivity().finish();
     }
 
-    public void getfeature() {
-        //progressDialog.show();
-        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<Feature> featurecall = apiInterface.GetFeture();
-        featurecall.enqueue(new Callback<Feature>() {
-            @Override
-            public void onResponse(@NonNull Call<Feature> call, @NonNull Response<Feature> response) {
-                //progressDialog.dismiss();
-                if (response.isSuccessful() && response.body() != null) {
-                    sessionManager = new SessionManager(HomeFragment.this.getActivity());
-                    FeatureItem data = response.body().getData();
-                    sessionManager.createFeatureSession(data);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Feature> call, Throwable t) {
-                //progressDialog.dismiss();
-                Toast.makeText(HomeFragment.this.getActivity(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
+//    private void getCounting() {
+//        progressDialog.show();
+//        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+//        Call<Counting> countingCall = apiInterface.GetCounting();
+//        countingCall.enqueue(new Callback<Counting>() {
+//            @Override
+//            public void onResponse(@NonNull Call<Counting> call, @NonNull Response<Counting> response) {
+//                progressDialog.dismiss();
+//                if (response.isSuccessful() && response.body() != null) {
+//                    sessionManager = new SessionManager(HomeFragment.this.getActivity());
+//                    DataCounting data = response.body().getDataCounting();
+//                    sessionManager.createCounting(data);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Counting> call, Throwable t) {
+//                progressDialog.dismiss();
+//                Toast.makeText(HomeFragment.this.getActivity(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
 
 }

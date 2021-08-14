@@ -40,8 +40,8 @@ public class LaporanKemajuanPenelitianDetailActivity extends AppCompatActivity {
         Judul = intent.getStringExtra("laporan_kemajuan_penelitian_id");
         Tanggal = intent.getStringExtra("laporan_kemajuan_date");
         Nama = intent.getStringExtra("laporan_kemajuan_base_name");
-        Tipe = intent.getStringExtra("laporan_kemajuan_extension");
-        Extension = intent.getStringExtra("laporan_kemajuan_tipe");
+        Tipe = intent.getStringExtra("laporan_kemajuan_tipe");
+        Extension = intent.getStringExtra("laporan_kemajuan_extension");
         original = intent.getStringExtra("laporan_kemajuan_original_name");
 
         tv_judul.setText(Judul);

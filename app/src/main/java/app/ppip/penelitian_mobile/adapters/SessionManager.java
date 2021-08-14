@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 
 import java.util.HashMap;
 
+import app.ppip.penelitian_mobile.model.counting.DataCounting;
 import app.ppip.penelitian_mobile.model.feature.FeatureItem;
 import app.ppip.penelitian_mobile.model.login.Data;
 
@@ -50,7 +51,10 @@ public class SessionManager {
     public static final String UNLOCK_FEATURE_UPDATE_AT = "updated_at";
 
     //feature
-    public static final String USULAN_PENELITIAN_JUDUL = "usulan_penelitian_judul ";
+    public static final String COUNTING_PENELITIAN = "usulan_penelitian_count ";
+    public static final String COUNTING_PENGABDIAN = "usulan_pengabdian_count ";
+    public static final String COUNTING_RIWAYAT_PENELITIAN = "usulan_riwayat_penelitian_count ";
+    public static final String COUNTING_RIWAYAT_PENGABDIAN = "usulan_riwayat_pengabdian_count ";
 
 
     public SessionManager (Context context){
@@ -134,6 +138,23 @@ public class SessionManager {
         user.put(UNLOCK_FEATURE_END_TIME, sharedPreferences.getString(UNLOCK_FEATURE_END_TIME,null));
         user.put(UNLOCK_FEATURE_CREATE_AT, sharedPreferences.getString(UNLOCK_FEATURE_CREATE_AT,null));
         user.put(UNLOCK_FEATURE_UPDATE_AT, sharedPreferences.getString(UNLOCK_FEATURE_UPDATE_AT,null));
+        return user;
+    }
+
+    public void createCounting(DataCounting counting){
+        editor.putString(COUNTING_PENELITIAN, counting.getUsulanPenelitianCount());
+        editor.putString(COUNTING_PENGABDIAN, counting.getUsulanPengabdianCount());
+        editor.putString(COUNTING_RIWAYAT_PENELITIAN, counting.getUsulanRiwayatPenelitianCount());
+        editor.putString(COUNTING_RIWAYAT_PENGABDIAN, counting.getUsulanRiwayatPengabdianCount());
+        editor.commit();
+    }
+
+    public HashMap<String,String> getCountingDetail(){
+        HashMap<String,String> user = new HashMap<>();
+        user.put(COUNTING_PENELITIAN, sharedPreferences.getString(COUNTING_PENELITIAN,null));
+        user.put(COUNTING_PENGABDIAN, sharedPreferences.getString(COUNTING_PENGABDIAN,null));
+        user.put(COUNTING_RIWAYAT_PENELITIAN, sharedPreferences.getString(COUNTING_RIWAYAT_PENELITIAN,null));
+        user.put(COUNTING_RIWAYAT_PENGABDIAN, sharedPreferences.getString(COUNTING_RIWAYAT_PENGABDIAN,null));
         return user;
     }
 

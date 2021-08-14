@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,6 +29,8 @@ import app.ppip.penelitian_mobile.fragments.HomeFragment;
 import app.ppip.penelitian_mobile.fragments.PenelitianFragment;
 import app.ppip.penelitian_mobile.fragments.PengabdianFragment;
 import app.ppip.penelitian_mobile.R;
+import app.ppip.penelitian_mobile.model.counting.Counting;
+import app.ppip.penelitian_mobile.model.counting.DataCounting;
 import app.ppip.penelitian_mobile.model.feature.Feature;
 import app.ppip.penelitian_mobile.model.feature.FeatureItem;
 import retrofit2.Call;
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "PushNotification";
     SessionManager sessionManager;
     BottomNavigationView bottom_nav;
+    ProgressDialog progressDialog;
     ApiInterface apiInterface;
     String  user_id;
     Deque<Integer> integerDeque = new ArrayDeque<>(3);
@@ -49,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("loading....");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+
         sessionManager = new SessionManager(MainActivity.this);
         user_id  = sessionManager.getUserDetail().get(SessionManager.USER_ID);
         if (sessionManager.isLoggedIn()){
@@ -56,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             createNotificationChannel();
             subscribetoTopic();
             getfeature();
+            getCounting(user_id);
         }
 
         bottom_nav = findViewById(R.id.bottom_navigation);
@@ -64,6 +73,29 @@ public class MainActivity extends AppCompatActivity {
         bottom_nav.setSelectedItemId(R.id.nav_beranda);
         bottom_nav.setOnNavigationItemSelectedListener(navListener);
 
+    }
+
+    private void getCounting(String user_id) {
+        progressDialog.show();
+        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        Call<Counting> countingCall = apiInterface.GetCounting(user_id);
+        countingCall.enqueue(new Callback<Counting>() {
+            @Override
+            public void onResponse(@NonNull Call<Counting> call, @NonNull Response<Counting> response) {
+                progressDialog.dismiss();
+                if (response.isSuccessful() && response.body() != null) {
+                    sessionManager = new SessionManager(MainActivity.this);
+                    DataCounting data = response.body().getDataCounting();
+                    sessionManager.createCounting(data);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Counting> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(MainActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void loadFragment(Fragment fragment) {

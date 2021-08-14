@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import app.ppip.penelitian_mobile.model.LaporanKemajuanPengabdian.LaporanKemajuanPengabdianItem;
+import app.ppip.penelitian_mobile.model.counting.Counting;
 import app.ppip.penelitian_mobile.model.feature.Feature;
 import app.ppip.penelitian_mobile.model.laporanAkhirPenelitian.LaporanAkhirPenelitianItem;
 import app.ppip.penelitian_mobile.model.laporanAkhirPengabdian.LaporanAkhirPengabdianItem;
@@ -131,6 +132,12 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("laporanAkhirPengabdian.php")
     Call<List<LaporanAkhirPengabdianItem>> LAPORAN_AKHIR_PENGABDIAN_CALL(
+            @Field("user_id") String user_id
+    );
+
+    @FormUrlEncoded
+    @POST("count.php")
+    Call<Counting> GetCounting(
             @Field("user_id") String user_id
     );
 }
