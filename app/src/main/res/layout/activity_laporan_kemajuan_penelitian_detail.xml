@@ -145,7 +145,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Usulan Luaran Tipe: "
+                android:text="Tipe Laporan: "
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
 
@@ -155,7 +155,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="6dp"
-                android:text="tipe"
+                android:text="Nama.pdf"
                 android:textSize="18sp"
                 android:textColor="#131313"/>
 
@@ -173,102 +173,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Usualan Luaran Tahun : "
+                android:text="Extensi Dokumen: "
                 android:textSize="18sp"
                 android:textColor="@color/black"/>
 
             <TextView
-                android:id="@+id/detail_laporan_kemajuan_luaran_tahun_penelitian"
+                android:id="@+id/detail_laporan_kemajuan_extensi_penelitian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:layout_marginRight="6dp"
-                android:text="2021"
-                android:textSize="18sp"
-                android:textColor="#131313"/>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Usualan Luaran Jenis: "
-                android:textSize="18sp"
-                android:textColor="@color/black"/>
-
-            <TextView
-                android:id="@+id/detail_laporan_kemajuan_luaran_jenis_penelitian"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:layout_marginRight="6dp"
-                android:text="Luaran Jenis"
-                android:textSize="18sp"
-                android:textColor="#131313"/>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Usualan Luaran Status : "
-                android:textSize="18sp"
-                android:textColor="@color/black"/>
-
-            <TextView
-                android:id="@+id/detail_laporan_kemajuan_luaran_status_penelitian"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:layout_marginRight="6dp"
-                android:text="Luaran Status"
-                android:textSize="18sp"
-                android:textColor="#131313"/>
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Usualan Luaran Rencana : "
-                android:textSize="18sp"
-                android:textColor="@color/black"/>
-
-            <TextView
-                android:id="@+id/detail_laporan_kemajuan_luaran_rencana_penelitian"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:layout_marginRight="6dp"
-                android:text="Rencana"
+                android:text="Nama.pdf"
                 android:textSize="18sp"
                 android:textColor="#131313"/>
 

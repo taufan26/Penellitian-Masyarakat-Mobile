@@ -30,7 +30,6 @@ public class UsulanDetailPenelitianActivity extends AppCompatActivity {
         status = findViewById(R.id.detail_status_penelitan);
         skema = findViewById(R.id.detail_Skema_penelitan);
         bidang = findViewById(R.id.detail_bidang_penelitan);
-        //komentar = findViewById(R.id.detail_komentar_penelitan);
         mahasiswa = findViewById(R.id.detail_mahasiswa_penelitan);
         button = findViewById(R.id.detail_penelitan_btn);
         btn_tambah = findViewById(R.id.detail_penelitan_btn_tambah);
@@ -46,7 +45,6 @@ public class UsulanDetailPenelitianActivity extends AppCompatActivity {
         Mahasiswa = intent.getStringExtra("mahasiswa");
         Tahun = intent.getStringExtra("tahun");
         Submit = intent.getStringExtra("submit");
-        //Komentar = intent.getStringExtra("komentar");
 
         judul.setText(Judul);
         kegiatan.setText(Kegiatan);

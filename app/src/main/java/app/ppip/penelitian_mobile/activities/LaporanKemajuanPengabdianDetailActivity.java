@@ -19,9 +19,8 @@ import app.ppip.penelitian_mobile.utils.Urls;
 
 public class LaporanKemajuanPengabdianDetailActivity extends AppCompatActivity {
 
-    TextView tv_judul, tv_tanggal, tv_nama, tv_extension, tv_luaranTahun, tv_luaranJenis,
-            tv_luaranStatus, tv_luaranRencana, button, download;
-    String Id, Judul, Tanggal, Nama, extension, LuaranTahun, LuaranJenis, LuaranStatus, LuaranRencana, original;
+    TextView tv_judul, tv_tanggal, tv_nama, tv_extension, tv_tipe, button, download;
+    String  Judul, Tanggal, Nama, extension, Tipe, original;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +33,7 @@ public class LaporanKemajuanPengabdianDetailActivity extends AppCompatActivity {
         button = findViewById(R.id.laporan_kemajuan_pengabdian_btn);
         download = findViewById(R.id.laporan_kemajuan_pengabdian_download_btn);
         tv_extension = findViewById(R.id.detail_laporan_kemajuan_extensi_pengabdian);
+        tv_tipe = findViewById(R.id.detail_laporan_kemajuan_tipe_pengabdian);
 
         Intent intent = getIntent();
         Judul = intent.getStringExtra("usulan_pengabdian_judul");
@@ -41,11 +41,13 @@ public class LaporanKemajuanPengabdianDetailActivity extends AppCompatActivity {
         Nama = intent.getStringExtra("laporan_kemajuan_base_name");
         original = intent.getStringExtra("laporan_kemajuan_original_name");
         extension = intent.getStringExtra("laporan_kemajuan_extension");
+        Tipe = intent.getStringExtra("laporan_kemajuan_tipe");
 
         tv_judul.setText(Judul);
         tv_tanggal.setText(Tanggal);
         tv_nama.setText(Nama);
         tv_extension.setText(extension);
+        tv_tipe.setText(Tipe);
 
         download.setOnClickListener(new View.OnClickListener() {
             @Override

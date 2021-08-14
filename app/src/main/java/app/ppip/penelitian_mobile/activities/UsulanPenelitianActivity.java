@@ -76,7 +76,6 @@ public class UsulanPenelitianActivity extends AppCompatActivity implements Penel
             String tahun = data.get(position).getUsulanPenelitianTahun();
             String submit = data.get(position).getUsulanPenelitianSubmit();
             String status = data.get(position).getUsulanPenelitianStatus();
-            String komentar = data.get(position).getUsulanPenelitianKomentar();
             String mahasiswa = data.get(position).getUsulanPenelitianMahasiswaTerlibat();
 
 
@@ -91,7 +90,6 @@ public class UsulanPenelitianActivity extends AppCompatActivity implements Penel
             intent.putExtra("tahun", tahun);
             intent.putExtra("submit", submit);
             intent.putExtra("status", status);
-            intent.putExtra("komentar", komentar);
             intent.putExtra("mahasiswa", mahasiswa);
             startActivityForResult(intent, INTENT_DETAIL);
 

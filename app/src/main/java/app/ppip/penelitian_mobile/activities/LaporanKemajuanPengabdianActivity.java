@@ -63,6 +63,7 @@ public class LaporanKemajuanPengabdianActivity extends AppCompatActivity impleme
             String laporan_kemajuan_base_name = data.get(position).getLaporanKemajuanBaseName();
             String laporan_kemajuan_original_name = data.get(position).getLaporanKemajuanOriginalName();
             String laporan_kemajuan_extension = data.get(position).getLaporanKemajuanExtension();
+            String laporan_kemajuan_tipe = data.get(position).getLaporanKemajuanOriginalName();
 
 
             Intent intent = new Intent(this, LaporanKemajuanPengabdianDetailActivity.class);
@@ -72,6 +73,7 @@ public class LaporanKemajuanPengabdianActivity extends AppCompatActivity impleme
             intent.putExtra("laporan_kemajuan_base_name", laporan_kemajuan_base_name);
             intent.putExtra("laporan_kemajuan_original_name", laporan_kemajuan_original_name);
             intent.putExtra("laporan_kemajuan_extension", laporan_kemajuan_extension);
+            intent.putExtra("laporan_kemajuan_tipe", laporan_kemajuan_tipe);
             startActivityForResult(intent, INTENT_LAPORAN_KEMAJUAN_PENGABDIAN_DETAIL);
         }));
     }

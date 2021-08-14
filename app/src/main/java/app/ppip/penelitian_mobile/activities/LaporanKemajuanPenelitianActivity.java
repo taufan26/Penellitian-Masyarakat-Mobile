@@ -59,33 +59,23 @@ public class LaporanKemajuanPenelitianActivity extends AppCompatActivity impleme
         itemClickListener = (((view, position) -> {
             String usulan_penelitian_judul = data.get(position).getUsulanPenelitianJudul();
             String laporan_kemajuan_id = data.get(position).getLaporanKemajuanId();
-            String laporan_kemajuan_luaran_id = data.get(position).getLaporanKemajuanLuaranId();
+            String laporan_kemajuan_penelitian_id = data.get(position).getLaporanKemajuanPenelitianId();
             String laporan_kemajuan_date = data.get(position).getLaporanKemajuanDate();
             String laporan_kemajuan_base_name = data.get(position).getLaporanKemajuanBaseName();
             String laporan_kemajuan_original_name = data.get(position).getLaporanKemajuanOriginalName();
-            String usulan_luaran_id = data.get(position).getUsulanLuaranId();
-            String usulan_luaran_penelitian_id = data.get(position).getUsulanLuaranPenelitianId();
-            String usulan_luaran_penelitian_tipe = data.get(position).getUsulanLuaranPenelitianTipe();
-            String usulan_luaran_penelitian_tahun = data.get(position).getUsulanLuaranPenelitianTahun();
-            String usulan_luaran_penelitian_jenis = data.get(position).getUsulanLuaranPenelitianJenis();
-            String usulan_luaran_penelitian_status = data.get(position).getUsulanLuaranPenelitianStatus();
-            String usulan_luaran_penelitian_rencana = data.get(position).getUsulanLuaranPenelitianRencana();
+            String laporan_kemajuan_extension = data.get(position).getLaporanKemajuanOriginalName();
+            String laporan_kemajuan_tipe = data.get(position).getLaporanKemajuanOriginalName();
 
 
             Intent intent = new Intent(this, LaporanKemajuanPenelitianDetailActivity.class);
             intent.putExtra("usulan_penelitian_judul", usulan_penelitian_judul);
             intent.putExtra("laporan_kemajuan_id", laporan_kemajuan_id);
-            intent.putExtra("laporan_kemajuan_luaran_id", laporan_kemajuan_luaran_id);
+            intent.putExtra("laporan_kemajuan_penelitian_id", laporan_kemajuan_penelitian_id);
             intent.putExtra("laporan_kemajuan_date", laporan_kemajuan_date);
             intent.putExtra("laporan_kemajuan_base_name", laporan_kemajuan_base_name);
             intent.putExtra("laporan_kemajuan_original_name", laporan_kemajuan_original_name);
-            intent.putExtra("usulan_luaran_id", usulan_luaran_id);
-            intent.putExtra("usulan_luaran_penelitian_id", usulan_luaran_penelitian_id);
-            intent.putExtra("usulan_luaran_penelitian_tipe", usulan_luaran_penelitian_tipe);
-            intent.putExtra("usulan_luaran_penelitian_tahun", usulan_luaran_penelitian_tahun);
-            intent.putExtra("usulan_luaran_penelitian_jenis", usulan_luaran_penelitian_jenis);
-            intent.putExtra("usulan_luaran_penelitian_status", usulan_luaran_penelitian_status);
-            intent.putExtra("usulan_luaran_penelitian_rencana", usulan_luaran_penelitian_rencana);
+            intent.putExtra("laporan_kemajuan_extension", laporan_kemajuan_extension);
+            intent.putExtra("laporan_kemajuan_tipe", laporan_kemajuan_tipe);
             startActivityForResult(intent, INTENT_LAPORAN_KEMAJUAN_DETAIL);
         }));
     }

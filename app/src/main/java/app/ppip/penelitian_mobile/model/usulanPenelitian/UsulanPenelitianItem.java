@@ -53,9 +53,6 @@ public class UsulanPenelitianItem{
 	@SerializedName("updated_at")
 	private String updatedAt;
 
-	@Expose
-	@SerializedName("usulan_penelitian_komentar")
-	private String usulanPenelitianKomentar;
 
 	@Expose
 	@SerializedName("usulan_penelitian_kategori")
@@ -111,10 +108,6 @@ public class UsulanPenelitianItem{
 
 	public String getUpdatedAt(){
 		return updatedAt;
-	}
-
-	public String getUsulanPenelitianKomentar(){
-		return usulanPenelitianKomentar;
 	}
 
 	public String getUsulanPenelitianKategori(){
