@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,38 +8,43 @@
     tools:context=".activities.LogbookDetailPenelitianActivity"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="99dp"
-        android:background="#3161FF"
-        android:padding="20dp">
-
-        <TextView
-            android:id="@+id/txtdasboard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logbook  Detail"
-            android:textColor="#FFFFFF"
-            android:textSize="22sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtdasboard"
-            android:layout_marginTop="6dp"
-            android:text="SIMTABMAS POLINDRA"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp" />
-
-        <ImageView
-            android:layout_width="62dp"
-            android:layout_height="62dp"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/logo_polindra" />
-
-    </RelativeLayout>
-
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="99dp"
+            android:background="#3161FF"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/txtdasboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logbook  Detail"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtdasboard"
+                android:layout_marginTop="6dp"
+                android:text="SIMTABMAS POLINDRA"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/logo_polindra" />
+
+        </RelativeLayout>
+
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -198,4 +203,6 @@
 
     </LinearLayout>
 
-</LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
