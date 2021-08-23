@@ -37,7 +37,7 @@ public class LaporanKemajuanPenelitianDetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Id = intent.getStringExtra("laporan_kemajuan_id");
-        Judul = intent.getStringExtra("laporan_kemajuan_penelitian_id");
+        Judul = intent.getStringExtra("usulan_penelitian_judul");
         Tanggal = intent.getStringExtra("laporan_kemajuan_date");
         Nama = intent.getStringExtra("laporan_kemajuan_base_name");
         Tipe = intent.getStringExtra("laporan_kemajuan_tipe");

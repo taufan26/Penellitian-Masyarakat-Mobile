@@ -63,7 +63,7 @@ public class LaporanKemajuanPenelitianActivity extends AppCompatActivity impleme
             String laporan_kemajuan_date = data.get(position).getLaporanKemajuanDate();
             String laporan_kemajuan_base_name = data.get(position).getLaporanKemajuanBaseName();
             String laporan_kemajuan_original_name = data.get(position).getLaporanKemajuanOriginalName();
-            String laporan_kemajuan_extension = data.get(position).getLaporanKemajuanOriginalName();
+            String laporan_kemajuan_extension = data.get(position).getLaporanKemajuanExtension();
             String laporan_kemajuan_tipe = data.get(position).getLaporanKemajuanTipe();
 
 
